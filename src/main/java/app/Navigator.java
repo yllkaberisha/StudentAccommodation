@@ -16,15 +16,19 @@ public class Navigator {
     public final static  String HOME_PAGE = "home.fxml";
     public final static  String CREATE_ACCOUNT_PAGE = "signup.fxml";
 
-    public static void navigate(Stage stage, String page) throws IOException {
+    public static void navigate(Stage stage, String page){
         FXMLLoader loader = new FXMLLoader(
                 Navigator.class.getResource(page)
         );
-        Scene scene = new Scene(loader.load());
-        stage.setScene(scene);
-        stage.show();
+        try {
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+            stage.show();
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }
     }
-    public static void navigate(Event event, String page) throws IOException {
+    public static void navigate(Event event, String page){
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         navigate(stage,page);
