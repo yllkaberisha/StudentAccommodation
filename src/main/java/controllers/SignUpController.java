@@ -50,7 +50,7 @@ public class SignUpController {
 
     @FXML
     private void handleCancel(ActionEvent ae){
-
+        Navigator.navigate(ae, Navigator.LOGIN_PAGE);
     }
     @FXML
     public void initialize() {
