@@ -13,19 +13,20 @@ public class UserRepository {
     public static boolean create(CreateUserDto userData){
         Connection conn = DBConnector.getConnection();
         String query = """
-                INSERT INTO USER (firstName, lastName, email, salt, passwordHash)
-                VALUE (?, ?, ?, ?, ?)
+                INSERT INTO USERS (firstname, lastName, gender, role, email, passwordHash, salt)
+                VALUE (?, ?, ?, ?, ?, ?, ?)
                 """;
         //String query = "INSERT INTO USER VALUE (?, ?, ?, ?, ?)";
         try{
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, userData.getFirstName());
             pst.setString(2, userData.getLastName());
-            pst.setString(2, userData.getGender());
-            pst.setString(2, userData.getRole());
-            pst.setString(3, userData.getEmail());
-            pst.setString(4, userData.getSalt());
-            pst.setString(5, userData.getPasswordHash());
+            pst.setString(3, userData.getGender());
+            pst.setString(4, userData.getRole());
+            pst.setString(5, userData.getEmail());
+            pst.setString(6, userData.getPasswordHash());
+            pst.setString(7, userData.getSalt());
+
             pst.execute();
             pst.close();
             conn.close();
@@ -38,7 +39,7 @@ public class UserRepository {
 
 
     public static User getByEmail(String email){
-        String query = "SELECT * FROM USER WHERE email = ? LIMIT 1";
+        String query = "SELECT * FROM USERS WHERE email = ? LIMIT 1";
         Connection connection = DBConnector.getConnection();
         try{
             PreparedStatement pst = connection.prepareStatement(query);

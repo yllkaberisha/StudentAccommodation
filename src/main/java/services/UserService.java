@@ -21,12 +21,11 @@ public class UserService {
         CreateUserDto createUserData = new CreateUserDto(
                 userData.getFirstName(),
                 userData.getLastName(),
-                userData.getEmail(),
                 userData.getGender(),
                 userData.getRole(),
-
-                salt,
-                passwordHash
+                userData.getEmail(),
+                passwordHash,
+                salt
         );
 
         return UserRepository.create(createUserData);
