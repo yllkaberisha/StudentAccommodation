@@ -6,6 +6,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import models.dto.UserDto;
 import services.UserService;
 
@@ -51,4 +52,47 @@ public class SignUpController {
     private void handleCancel(ActionEvent ae){
 
     }
+    @FXML
+    public void initialize() {
+        // Vendos fokusin në txtFirstName kur skena ngarkohet
+        txtFirstName.requestFocus();
+
+        // Vendos një event handler për tastin Enter në txtFirstName për të kaluar në txtLastName
+        txtFirstName.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                txtLastName.requestFocus();
+            }
+        });
+
+        // Mund të shtoni event handler të ngjashëm për të kaluar në fushat e tjera të tekstit
+        txtLastName.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                txtGender.requestFocus();
+            }
+        });
+        txtGender.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                txtRole.requestFocus();
+            }
+        });
+        txtRole.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                txtEmail.requestFocus();
+            }
+        });
+        txtEmail.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                pwdPassword.requestFocus();
+            }
+        });
+        pwdPassword.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                pwdConfirmPassword.requestFocus();
+            }
+        });
+
+
+        // Vazhdoni për fushat e tjera të tekstit nëse është e nevojshme
+    }
 }
+
