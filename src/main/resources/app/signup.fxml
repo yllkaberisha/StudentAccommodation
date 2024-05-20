@@ -44,7 +44,7 @@
             <PasswordField fx:id="pwdPassword" layoutX="176.0" layoutY="389.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
             <PasswordField fx:id="pwdConfirmPassword" layoutX="176.0" layoutY="429.0" promptText="confirm password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
 
-           <!-- <FontAwesomeIconView fill="#0598ff" glyphName="USERS" layoutX="167.0" layoutY="117.0" size="35" />-->
+           <!-- <FontAwesomeIcon fill="#0598ff" glyphName="USERS" layoutX="167.0" layoutY="117.0" size="35" />-->
             <Text fill="#0598ff" layoutX="131.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User SignUp">
                <font>
                   <Font size="22.0" />
