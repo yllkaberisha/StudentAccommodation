@@ -24,7 +24,7 @@ public class ChangePasswordController {
                 this.pwdNewPassword.getText(),
                 this.pwdConfirmPassword.getText()
         );
-        User user = UserService.changePassword(changePasswordDto);
+        boolean changed = UserService.changePassword(changePasswordDto);
 
     }
     @FXML

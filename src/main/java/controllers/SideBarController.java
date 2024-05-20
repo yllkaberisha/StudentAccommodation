@@ -82,6 +82,26 @@ public class SideBarController {
         bp.setCenter(null);
         loadPage(Navigator.LOGIN_PAGE);
     }
+    public void changeLanguageClick(MouseEvent event) {
+        Navigator.changeLanguage();
+        Navigator.navigate(event, Navigator.ADMIN_MAIN);
+        reloadCurrentPage();
+    }
+
+    private void reloadCurrentPage() {
+//        String currentFxml = (String) bp.getUserData();
+//        if (currentFxml != null) {
+//            loadPage(currentFxml);
+//        }
+
+//        loadPage(Navigator.ADMIN_MAIN);
+
+
+        loadPage(Navigator.ADMIN_USERS);
+
+    }
+
+
 
     // Helper method to load pages into the center of the BorderPane
     private void loadPage(String page) {
@@ -92,4 +112,6 @@ public class SideBarController {
             System.err.println("Error loading page: " + page);
         }
     }
+
+
 }

@@ -2,14 +2,11 @@ package controllers;
 
 import app.Navigator;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
 import models.dto.UserDto;
 import services.UserService;
-import javafx.fxml.Initializable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,10 +17,6 @@ public class SignUpController implements Initializable {
     @FXML
     private TextField txtLastName;
     @FXML
-    private TextField txtGender;
-    @FXML
-    private TextField txtRole;
-    @FXML
     private TextField txtEmail;
     @FXML
     private PasswordField pwdPassword;
@@ -33,83 +26,50 @@ public class SignUpController implements Initializable {
     private RadioButton rButton1, rButton2;
     @FXML
     private ToggleGroup tgGender;
-
-@FXML
-    public  void getGender(ActionEvent ae ){
-
-        if(rButton1.isSelected()){
-           txtGender.setText(rButton1.getText());
-        }else if(rButton2.isSelected()){
-            txtGender.setText(rButton2.getText());
-        }
-
-    }
     @FXML
     private ChoiceBox<String> roleBox;
-    private String [] role = {"admin","user"};
+
+    private String[] roles = {"admin", "user"};
+
     @FXML
     private void handleSignUp(ActionEvent ae) throws IOException {
+        // Get the gender text ("male" or "female") and map it to "M" or "F"
+        String gender = ((RadioButton) tgGender.getSelectedToggle()).getText();
+        String genderCode = gender.equalsIgnoreCase("male") ? "M" : "F";
+
+        // Get the selected role
+        String role = roleBox.getValue();
+
         UserDto userSignUpData = new UserDto(
                 this.txtFirstName.getText(),
                 this.txtLastName.getText(),
-                this.txtGender.getText(),
-                this.txtRole.getText(),
+                genderCode,
+                role,
                 this.txtEmail.getText(),
                 this.pwdPassword.getText(),
                 this.pwdConfirmPassword.getText()
-
-
         );
 
         boolean response = UserService.signUp(userSignUpData);
 
         if (response) {
             System.out.println("User created");
+            Navigator.navigate(ae, Navigator.LOGIN_PAGE);
         } else {
             System.out.println("User creation failed");
         }
-
-
-        if(response){
-            Navigator.navigate(ae, Navigator.LOGIN_PAGE);
-        }
-
     }
 
     @FXML
-    private void handleCancel(ActionEvent ae){
+    private void handleCancel(ActionEvent ae) {
         Navigator.navigate(ae, Navigator.LOGIN_PAGE);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        roleBox.getItems().addAll(role);
+        roleBox.getItems().addAll(roles);
         tgGender = new ToggleGroup();
         this.rButton1.setToggleGroup(tgGender);
         this.rButton2.setToggleGroup(tgGender);
-//        roleBox.setOnAction(this::getRole);
     }
-    @FXML
-    public void initialize() {
-        // Initialization code
-        getGender();
-    }
-
-    public void getGender() {
-        if (txtGender != null) {
-            txtGender.setText("Your Gender Text");
-        } else {
-            System.out.println("txtGender is null");
-        }
-    }
-
-//    @FXML
-//    public void getRole(ActionEvent ae){
-//        String role = roleBox.getValue();
-//        txtRole.setText(role);
-//    }
-
-
-    // Vazhdoni për fushat e tjera të tekstit nëse është e nevojshme
-    }
-
+}

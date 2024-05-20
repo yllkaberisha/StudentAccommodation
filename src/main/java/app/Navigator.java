@@ -1,5 +1,6 @@
 package app;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -40,9 +41,18 @@ public class Navigator {
         pane.getChildren().add(formPane);
     }
 
-    private void changeLanguage(){
-        Locale locale = Locale.of("sq");
-        Locale.setDefault(locale);
+    public static void changeLanguage(){
+        Locale degaultLocale = Locale.getDefault();
+        if(degaultLocale.getLanguage().equals("en")){
+            Locale.setDefault(
+                    Locale.of("sq")
+            );
+        }
+        else{
+            Locale.setDefault(Locale.ENGLISH);
+        }
+
+        System.out.println(degaultLocale.getLanguage());
     }
 
     public static Pane loadPane(String form){

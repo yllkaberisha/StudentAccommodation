@@ -1,6 +1,7 @@
 package repositories;
 
 import models.dto.ChangePasswordDto;
+import models.dto.ChangeUserPasswordDto;
 import models.dto.CreateUserDto;
 import models.User;
 import services.DBConnector;
@@ -36,23 +37,22 @@ public class UserRepository {
         }
 
     }
-    public static boolean change(ChangePasswordDto changePasswordData){
+    public static boolean change(ChangeUserPasswordDto changeUserPasswordData){
         Connection conn = DBConnector.getConnection();
         String query1 = """
                 UPDATE USERS
-                SET newPassword = ?, confirmPassword = ?
+                SET salt = ?, passwordHash = ?
                 WHERE email = ?
                 """;
         //String query = "INSERT INTO USER VALUE (?, ?, ?, ?, ?)";
         try{
             PreparedStatement pst = conn.prepareStatement(query1);
-            pst.setString(1, changePasswordData.getEmail());
-            pst.setString(2, changePasswordData.getNewPassword());
-            pst.setString(3, changePasswordData.getConfirmPassword());
+            pst.setString(1, changeUserPasswordData.getSalt());
+            pst.setString(2, changeUserPasswordData.getPasswordHash());
+            pst.setString(3, changeUserPasswordData.getEmail());
 
             pst.execute();
-            pst.close();
-            conn.close();
+            System.out.println("Password has been change");
             return true;
         }catch (Exception e){
             return false;

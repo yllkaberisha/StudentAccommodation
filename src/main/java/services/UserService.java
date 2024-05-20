@@ -1,10 +1,7 @@
 package services;
 
 import models.User;
-import models.dto.ChangePasswordDto;
-import models.dto.CreateUserDto;
-import models.dto.LoginUserDto;
-import models.dto.UserDto;
+import models.dto.*;
 import repositories.UserRepository;
 
 public class UserService {
@@ -48,28 +45,31 @@ public class UserService {
             return null;
         }
     }
-    public static User changePassword(ChangePasswordDto changePasswordData){
+    public static boolean changePassword(ChangePasswordDto changePasswordData){
         User user = UserRepository.getByEmail(changePasswordData.getEmail());
         if (user==null){
-            return null;
+            return false;
         }
 
-        String password =changePasswordData .getNewPassword();
-        String salt = user.getSalt();
-        String passwordHash = user.getPasswordHash();
+        String confirmPassword = changePasswordData.getConfirmPassword();
+        String password = changePasswordData.getNewPassword();
 
-        if (PasswordHasher.compareSaltedHash(password, salt, passwordHash)) {
-            return user;
-        } else {
-            return null;
+        if (!password.equals(confirmPassword)) {
+            return false;
         }
+        String salt = PasswordHasher.generateSalt();
+        String passwordHash = PasswordHasher.generateSaltedHash(
+                password, salt
+        );
+        ChangeUserPasswordDto changeUserPasswordDto = new ChangeUserPasswordDto(
+                user.getEmail(),
+                passwordHash,
+                salt
+        );
 
-
-
-
-
+        return UserRepository.change(changeUserPasswordDto);
     }
-    }
+}
 
 
 

@@ -26,20 +26,20 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </opaqueInsets>
             </Label>
-            <Button layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#dashboardPage" prefHeight="33.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="Dashboard" textAlignment="RIGHT" textFill="WHITE" />
-            <Button mnemonicParsing="false" onMouseClicked="#usersPageClick" prefHeight="33.0" prefWidth="186.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="Users" textAlignment="RIGHT" textFill="WHITE" />
-            <Button layoutX="10.0" layoutY="141.0" mnemonicParsing="false" onMouseClicked="#roomsPageClick" prefHeight="33.0" prefWidth="186.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="Rooms" textAlignment="RIGHT" textFill="WHITE" />
-            <Button layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onMouseClicked="#applicationsPageClick" prefHeight="33.0" prefWidth="188.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="Applications" textAlignment="RIGHT" textFill="WHITE" />
+            <Button layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#dashboardPage" prefHeight="33.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnDashboard" textAlignment="RIGHT" textFill="WHITE" />
+            <Button mnemonicParsing="false" onMouseClicked="#usersPageClick" prefHeight="33.0" prefWidth="186.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnUsers" textAlignment="RIGHT" textFill="WHITE" />
+            <Button layoutX="10.0" layoutY="141.0" mnemonicParsing="false" onMouseClicked="#roomsPageClick" prefHeight="33.0" prefWidth="186.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnRooms" textAlignment="RIGHT" textFill="WHITE" />
+            <Button layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onMouseClicked="#applicationsPageClick" prefHeight="33.0" prefWidth="188.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnApplications" textAlignment="RIGHT" textFill="WHITE" />
             <Label prefHeight="116.0" prefWidth="153.0" />
-            <Button layoutX="10.0" layoutY="175.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="EN | SQ" textAlignment="RIGHT" textFill="WHITE" />
-            <Button layoutX="10.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#logOutClick" prefHeight="33.0" prefWidth="184.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="Log Out" textAlignment="RIGHT" textFill="WHITE" />
+            <Button layoutX="10.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#changeLanguageClick" prefHeight="33.0" prefWidth="184.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="EN | SQ" textAlignment="RIGHT" textFill="WHITE" />
+            <Button layoutX="10.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#logOutClick" prefHeight="33.0" prefWidth="184.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnLogOut" textAlignment="RIGHT" textFill="WHITE" />
          </children>
       </VBox>
    </left>
    <center>
       <AnchorPane fx:id="ap" prefHeight="500.0" prefWidth="518.0" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="153.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" wrappingWidth="194.44781494140625">
+            <Text layoutX="153.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtHome" wrappingWidth="194.44781494140625">
                <font>
                   <Font size="30.0" />
                </font>
