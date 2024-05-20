@@ -51,7 +51,6 @@
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="rButton2" layoutX="239.0" layoutY="281.0" mnemonicParsing="false" onAction="#getGender" text="female" toggleGroup="$gender" />
-            <TextField fx:id="txtGender" editable="false"/>
             <ChoiceBox fx:id="roleBox" layoutX="176.0" layoutY="316.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
