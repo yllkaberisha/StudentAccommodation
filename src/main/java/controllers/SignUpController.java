@@ -4,15 +4,17 @@ import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import models.dto.UserDto;
 import services.UserService;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SignUpController {
+public class SignUpController implements Initializable {
     @FXML
     private TextField txtFirstName;
     @FXML
@@ -27,7 +29,21 @@ public class SignUpController {
     private PasswordField pwdPassword;
     @FXML
     private PasswordField pwdConfirmPassword;
+    @FXML
+    private RadioButton rButton1, rButton2;
 
+
+@FXML
+    public  void getGender(ActionEvent ae ){
+        if(rButton1.isSelected()){
+           txtGender.setText(rButton1.getText());
+        }else if(rButton2.isSelected()){
+            txtGender.setText(rButton2.getText());
+        }
+    }
+    @FXML
+    private ChoiceBox<String> roleBox;
+    private String [] role = {"admin","user"};
     @FXML
     private void handleSignUp(ActionEvent ae) throws IOException {
         UserDto userSignUpData = new UserDto(
@@ -38,6 +54,8 @@ public class SignUpController {
                 this.txtEmail.getText(),
                 this.pwdPassword.getText(),
                 this.pwdConfirmPassword.getText()
+
+
         );
 
         boolean response = UserService.signUp(userSignUpData);
@@ -52,47 +70,33 @@ public class SignUpController {
     private void handleCancel(ActionEvent ae){
         Navigator.navigate(ae, Navigator.LOGIN_PAGE);
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        roleBox.getItems().addAll(role);
+//        roleBox.setOnAction(this::getRole);
+    }
     @FXML
     public void initialize() {
-        // Vendos fokusin në txtFirstName kur skena ngarkohet
-        txtFirstName.requestFocus();
-
-        // Vendos një event handler për tastin Enter në txtFirstName për të kaluar në txtLastName
-        txtFirstName.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                txtLastName.requestFocus();
-            }
-        });
-
-        // Mund të shtoni event handler të ngjashëm për të kaluar në fushat e tjera të tekstit
-        txtLastName.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                txtGender.requestFocus();
-            }
-        });
-        txtGender.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                txtRole.requestFocus();
-            }
-        });
-        txtRole.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                txtEmail.requestFocus();
-            }
-        });
-        txtEmail.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                pwdPassword.requestFocus();
-            }
-        });
-        pwdPassword.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                pwdConfirmPassword.requestFocus();
-            }
-        });
-
-
-        // Vazhdoni për fushat e tjera të tekstit nëse është e nevojshme
+        // Initialization code
+        getGender();
     }
-}
+
+    public void getGender() {
+        if (txtGender != null) {
+            txtGender.setText("Your Gender Text");
+        } else {
+            System.out.println("txtGender is null");
+        }
+    }
+
+//    @FXML
+//    public void getRole(ActionEvent ae){
+//        String role = roleBox.getValue();
+//        txtRole.setText(role);
+//    }
+
+
+    // Vazhdoni për fushat e tjera të tekstit nëse është e nevojshme
+    }
 
