@@ -1,9 +1,12 @@
 package controllers;
 
+import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import models.User;
 import models.dto.ChangePasswordDto;
 import services.UserService;
 
@@ -21,9 +24,12 @@ public class ChangePasswordController {
                 this.pwdNewPassword.getText(),
                 this.pwdConfirmPassword.getText()
         );
-        boolean isChange = UserService.changePassword(changePasswordDto);
-        //boolean isLogin =
-        System.out.println(isChange);
+        User user = UserService.changePassword(changePasswordDto);
+
+    }
+    @FXML
+    public void handleBack(MouseEvent me){
+        Navigator.navigate(me,Navigator.LOGIN_PAGE);
     }
 
 }

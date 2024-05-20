@@ -48,21 +48,26 @@ public class UserService {
             return null;
         }
     }
-    public static boolean changePassword(ChangePasswordDto changePasswordData){
+    public static User changePassword(ChangePasswordDto changePasswordData){
         User user = UserRepository.getByEmail(changePasswordData.getEmail());
         if (user==null){
-            return false;
+            return null;
         }
-        String newPassword = changePasswordData.getNewPassword();
-        String confirmPassword = changePasswordData.getConfirmPassword();
-        ChangePasswordDto changePasswordDto = new ChangePasswordDto(
-                changePasswordData.getEmail(),
-                changePasswordData.getNewPassword(),
-                changePasswordData.getConfirmPassword()
 
-        );
+        String password =changePasswordData .getNewPassword();
+        String salt = user.getSalt();
+        String passwordHash = user.getPasswordHash();
 
-        return UserRepository.change(changePasswordDto);
+        if (PasswordHasher.compareSaltedHash(password, salt, passwordHash)) {
+            return user;
+        } else {
+            return null;
+        }
+
+
+
+
+
     }
     }
 
