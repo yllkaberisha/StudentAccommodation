@@ -39,8 +39,9 @@ public class UserRepository {
     public static boolean change(ChangePasswordDto changePasswordData){
         Connection conn = DBConnector.getConnection();
         String query1 = """
-                INSERT INTO USERS (email, newPassword, confirmPassword)
-                VALUE (?, ?, ?, )
+                UPDATE USERS
+                SET newPassword = ?, confirmPassword = ?
+                WHERE email = ?
                 """;
         //String query = "INSERT INTO USER VALUE (?, ?, ?, ?, ?)";
         try{
