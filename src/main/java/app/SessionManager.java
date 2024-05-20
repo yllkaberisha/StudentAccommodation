@@ -1,5 +1,5 @@
 package app;
-import model.User;
+import models.User;
 
 public class SessionManager {
     private static User user;
