@@ -32,19 +32,21 @@ public class UserService {
         return UserRepository.create(createUserData);
     }
 
-    public static boolean login(LoginUserDto loginData){
+    public static User login(LoginUserDto loginData){
         User user = UserRepository.getByEmail(loginData.getEmail());
         if(user == null){
-            return false;
+            return null;
         }
 
         String password = loginData.getPassword();
         String salt = user.getSalt();
         String passwordHash = user.getPasswordHash();
 
-        return PasswordHasher.compareSaltedHash(
-                password, salt, passwordHash
-        );
+        if (PasswordHasher.compareSaltedHash(password, salt, passwordHash)) {
+            return user;
+        } else {
+            return null;
+        }
     }
     public static boolean changePassword(ChangePasswordDto changePasswordData){
         User user = UserRepository.getByEmail(changePasswordData.getEmail());

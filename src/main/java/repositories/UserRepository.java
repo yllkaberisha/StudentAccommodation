@@ -29,8 +29,7 @@ public class UserRepository {
             pst.setString(7, userData.getSalt());
 
             pst.execute();
-            pst.close();
-            conn.close();
+
             return true;
         }catch (Exception e){
             return false;

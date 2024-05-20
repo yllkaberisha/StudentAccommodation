@@ -1,6 +1,7 @@
 package controllers;
 
 import app.Navigator;
+import app.SessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -8,6 +9,7 @@ import javafx.scene.control.TextField;
 
 import javafx.scene.input.MouseEvent;
 import models.dto.LoginUserDto;
+import models.User;
 import services.UserService;
 
 import java.io.IOException;
@@ -24,9 +26,24 @@ public class LoginController {
                 this.pwdPassword.getText()
         );
 
-        boolean isLogin = UserService.login(loginUserData);
-        //boolean isLogin =
-        System.out.println(isLogin);
+
+        User user = UserService.login(loginUserData);
+
+        if (user != null) {
+            SessionManager.setUser(user);
+            if (user.getRole().equals("admin")) {
+                System.out.println("admin");
+                Navigator.navigate(ae, Navigator.ADMIN_MAIN);
+            } else {
+                System.out.println("user");
+
+//                Navigator.navigate(ae, Navigator.USER_HOME_PAGE);
+            }
+        } else {
+            // Show login failed message
+            System.out.println("Login failed. Invalid username or password.");
+        }
+
     }
 
     @FXML

@@ -63,6 +63,13 @@ public class SignUpController implements Initializable {
 
         boolean response = UserService.signUp(userSignUpData);
 
+        if (response) {
+            System.out.println("User created");
+        } else {
+            System.out.println("User creation failed");
+        }
+
+
         if(response){
             Navigator.navigate(ae, Navigator.LOGIN_PAGE);
         }
