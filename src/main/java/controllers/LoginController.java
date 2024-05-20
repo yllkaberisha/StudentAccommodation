@@ -31,7 +31,7 @@ public class LoginController {
 
     @FXML
     private void handleForgotPasswordClick(MouseEvent me){
-
+        Navigator.navigate(me,Navigator.CHANGE_PASSWORD_ACCOUNT_PAGE);
     }
     @FXML
     public void handleCreateAccountClick(MouseEvent me)  {

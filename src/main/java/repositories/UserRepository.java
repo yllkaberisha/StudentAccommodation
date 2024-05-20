@@ -1,5 +1,6 @@
 package repositories;
 
+import models.dto.ChangePasswordDto;
 import models.dto.CreateUserDto;
 import models.User;
 import services.DBConnector;
@@ -26,6 +27,28 @@ public class UserRepository {
             pst.setString(5, userData.getEmail());
             pst.setString(6, userData.getPasswordHash());
             pst.setString(7, userData.getSalt());
+
+            pst.execute();
+            pst.close();
+            conn.close();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
+    }
+    public static boolean change(ChangePasswordDto changePasswordData){
+        Connection conn = DBConnector.getConnection();
+        String query1 = """
+                INSERT INTO USERS (email, newPassword, confirmPassword)
+                VALUE (?, ?, ?, )
+                """;
+        //String query = "INSERT INTO USER VALUE (?, ?, ?, ?, ?)";
+        try{
+            PreparedStatement pst = conn.prepareStatement(query1);
+            pst.setString(1, changePasswordData.getEmail());
+            pst.setString(2, changePasswordData.getNewPassword());
+            pst.setString(3, changePasswordData.getConfirmPassword());
 
             pst.execute();
             pst.close();

@@ -15,7 +15,7 @@ public class Navigator {
 
     public final static  String HOME_PAGE = "home.fxml";
     public final static  String CREATE_ACCOUNT_PAGE = "signup.fxml";
-
+    public final static  String CHANGE_PASSWORD_ACCOUNT_PAGE = "changepassword.fxml";
     public static void navigate(Stage stage, String page){
         FXMLLoader loader = new FXMLLoader(
                 Navigator.class.getResource(page)
