@@ -44,38 +44,52 @@
 
 <!--<?import de.jensd.fx.glyphs.fontawesome.*?>-->
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
-   <right>
-      <AnchorPane prefHeight="300.0" prefWidth="350.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextField fx:id="txtEmail" layoutX="119.0" layoutY="217.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="pwdPassword" layoutX="119.0" layoutY="256.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-<!--            <FontAwesomeIconView fill="#0598ff" glyphName="KEY" layoutX="83.0" layoutY="277.0" size="20" />-->
-<!--            <FontAwesomeIconView fill="#0598ff" glyphName="USER" layoutX="86.0" layoutY="239.0" size="20" />-->
-            <Button layoutX="145.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="27.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="Login" textFill="WHITE" />
-<!--            <FontAwesomeIconView fill="#0598ff" glyphName="USERS" layoutX="168.0" layoutY="107.0" size="35" />-->
-            <Text fill="#0598ff" layoutX="135.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Text>
-            <Button layoutX="323.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-            <Text fill="#0598ff" layoutX="123.0" layoutY="305.0" onMouseClicked="#handleForgotPasswordClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Your Password ?" underline="true" />
-            <Text fill="#0598ff" layoutX="150.0" layoutY="473.0" onMouseClicked="#handleCreateAccountClick" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account" underline="true" wrappingWidth="86.7171630859375" />
-         </children>
-      </AnchorPane>
-   </right>
-   <left>
-      <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
-         <children>
-            <Text fill="WHITE" layoutX="98.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Accomodation">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-<!--            <FontAwesomeIconView fill="WHITE" glyphName="UNIVERSITY" layoutX="135.0" layoutY="223.0" size="70" text="" />-->
-         </children>
-      </AnchorPane>
-   </left>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+            prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.LoginController">
+    <right>
+        <AnchorPane prefHeight="300.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="txtEmail" layoutX="119.0" layoutY="217.0" promptText="%lblEmail"
+                           style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;"/>
+                <PasswordField fx:id="pwdPassword" layoutX="119.0" layoutY="256.0" promptText="%lblPassword"
+                               style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;"/>
+<!--                <FontAwesomeIconView fill="#0598ff" glyphName="KEY" layoutX="83.0" layoutY="277.0" size="20"/>-->
+<!--                <FontAwesomeIconView fill="#0598ff" glyphName="USER" layoutX="86.0" layoutY="239.0" size="20"/>-->
+                <Button layoutX="145.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleLogin"
+                        prefHeight="27.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="%btnLogin"
+                        textFill="WHITE"/>
+<!--                <FontAwesomeIconView fill="#0598ff" glyphName="USERS" layoutX="168.0" layoutY="107.0" size="35"/>-->
+                <Text fill="#0598ff" layoutX="135.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="%lblUserLogin">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Text>
+                <Button layoutX="323.0" layoutY="2.0" mnemonicParsing="false"
+                        style="-fx-background-color: transparent;"/>
+                <Text fill="#0598ff" layoutX="123.0" layoutY="305.0" onMouseClicked="#handleForgotPasswordClick"
+                      strokeType="OUTSIDE" strokeWidth="0.0" text=" %lblForgotYourPassword" underline="true"/>
+                <Text fill="#0598ff" layoutX="150.0" layoutY="473.0" onMouseClicked="#handleCreateAccountClick"
+                      strokeType="OUTSIDE" strokeWidth="0.0" text="%lblCreateAccount" underline="true"
+                      wrappingWidth="86.7171630859375"/>
+            </children>
+        </AnchorPane>
+    </right>
+    <left>
+        <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #0598ff;"
+                    BorderPane.alignment="CENTER">
+            <children>
+                <Text fill="WHITE" layoutX="98.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Student Accomodation">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Text>
+                <FontAwesomeIcon fill="WHITE" glyphName="UNIVERSITY" layoutX="135.0" layoutY="223.0" size="70"
+                                     text=""/>
+            </children>
+        </AnchorPane>
+    </left>
 </BorderPane>

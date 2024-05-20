@@ -8,7 +8,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage stage)  {
+    public void start(Stage stage) {
         Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+
+
     }
 }
