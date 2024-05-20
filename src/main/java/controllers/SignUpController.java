@@ -31,15 +31,18 @@ public class SignUpController implements Initializable {
     private PasswordField pwdConfirmPassword;
     @FXML
     private RadioButton rButton1, rButton2;
-
+    @FXML
+    private ToggleGroup tgGender;
 
 @FXML
     public  void getGender(ActionEvent ae ){
+
         if(rButton1.isSelected()){
            txtGender.setText(rButton1.getText());
         }else if(rButton2.isSelected()){
             txtGender.setText(rButton2.getText());
         }
+
     }
     @FXML
     private ChoiceBox<String> roleBox;
@@ -74,6 +77,9 @@ public class SignUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         roleBox.getItems().addAll(role);
+        tgGender = new ToggleGroup();
+        this.rButton1.setToggleGroup(tgGender);
+        this.rButton2.setToggleGroup(tgGender);
 //        roleBox.setOnAction(this::getRole);
     }
     @FXML
