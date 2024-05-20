@@ -9,7 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import models.dto.UserDto;
 import services.UserService;
-
+import javafx.fxml.Initializable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
