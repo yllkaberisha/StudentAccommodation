@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardController">
+    <left>
+        <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+            <children>
+                <FontAwesomeIcon fill="WHITE" glyphName="UNIVERSITY" layoutX="135.0" layoutY="220.0" size="70" />
+                <Text fill="WHITE" layoutX="92.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Accommodation">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+            <children>
+                <PieChart fx:id="genderPieChart" layoutX="20.0" layoutY="20.0" prefHeight="300.0" prefWidth="300.0" />
+
+                <Label layoutX="58.0" layoutY="360.0" text="Male Users:" />
+                <Label fx:id="totalMaleUsersLabel" layoutX="176.0" layoutY="360.0" text="0" />
+
+                <Label layoutX="58.0" layoutY="400.0" text="Female Users:" />
+                <Label fx:id="totalFemaleUsersLabel" layoutX="176.0" layoutY="400.0" text="0" />
+
+                <Label layoutX="58.0" layoutY="440.0" text="Total Users:" />
+                <Label fx:id="totalUsersLabel" layoutX="176.0" layoutY="440.0" text="0" />
+
+                <Label layoutX="58.0" layoutY="480.0" text="Male Dorms::" />
+                <Label layoutX="176.0" layoutY="480.0" text="3" />
+
+                <Label layoutX="58.0" layoutY="520.0" text="Female Dorms:" />
+                <Label layoutX="176.0" layoutY="520.0" text="5" />
+
+                <Label layoutX="58.0" layoutY="560.0" text="Total Dorms:" />
+                <Label layoutX="176.0" layoutY="560.0" text="8" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
