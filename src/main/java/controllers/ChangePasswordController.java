@@ -32,4 +32,9 @@ public class ChangePasswordController {
         Navigator.navigate(me,Navigator.LOGIN_PAGE);
     }
 
+    @FXML
+    public void handelChangeLanguage(ActionEvent ae) {
+        Navigator.changeLanguage();
+        Navigator.navigate(ae,Navigator.CHANGE_PASSWORD_ACCOUNT_PAGE);
+    }
 }

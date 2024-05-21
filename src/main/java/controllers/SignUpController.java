@@ -72,4 +72,9 @@ public class SignUpController implements Initializable {
         this.rButton1.setToggleGroup(tgGender);
         this.rButton2.setToggleGroup(tgGender);
     }
+@FXML
+    public void handelChangeLanguage(ActionEvent ae) {
+        Navigator.changeLanguage();
+        Navigator.navigate(ae,Navigator.CREATE_ACCOUNT_PAGE);
+    }
 }

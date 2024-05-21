@@ -10,9 +10,10 @@
    <left>
       <VBox fx:id="vb" prefHeight="400.0" prefWidth="180.0" style="-fx-background-color: #06768d;" BorderPane.alignment="CENTER">
          <children>
+            <Label layoutX="10.0" layoutY="262.0" prefHeight="30.0" prefWidth="194.0" />
             <FontAwesomeIcon fill="WHITE" glyphName="UNIVERSITY" layoutX="135.0" layoutY="223.0" size="30" text="" textAlignment="CENTER" wrappingWidth="185.0" />
 <!--            <FontAwesomeIcon fill="WHITE" glyphName="UNIVERSITY" selectionEnd="0" size="4em" text="" textAlignment="CENTER" wrappingWidth="152.57140731811523" />-->
-            <Label prefHeight="89.0" prefWidth="185.0" text="Student Accomodation" textAlignment="CENTER" textFill="WHITE">
+            <Label prefHeight="39.0" prefWidth="185.0" text="%txtStudentAccomodation" textAlignment="CENTER" textFill="WHITE">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -20,17 +21,18 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="13.0" />
                </font>
                <opaqueInsets>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </opaqueInsets>
             </Label>
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="194.0" />
             <Button layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#dashboardPage" prefHeight="33.0" prefWidth="183.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnDashboard" textAlignment="RIGHT" textFill="WHITE" />
             <Button mnemonicParsing="false" onMouseClicked="#usersPageClick" prefHeight="33.0" prefWidth="186.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnUsers" textAlignment="RIGHT" textFill="WHITE" />
             <Button layoutX="10.0" layoutY="141.0" mnemonicParsing="false" onMouseClicked="#roomsPageClick" prefHeight="33.0" prefWidth="186.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnRooms" textAlignment="RIGHT" textFill="WHITE" />
             <Button layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onMouseClicked="#applicationsPageClick" prefHeight="33.0" prefWidth="188.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnApplications" textAlignment="RIGHT" textFill="WHITE" />
-            <Label prefHeight="116.0" prefWidth="153.0" />
+            <Label prefHeight="126.0" prefWidth="153.0" />
             <Button layoutX="10.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#changeLanguageClick" prefHeight="33.0" prefWidth="184.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="EN | SQ" textAlignment="RIGHT" textFill="WHITE" />
             <Button layoutX="10.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#logOutClick" prefHeight="33.0" prefWidth="184.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0pc 0px 2px 0px;" text="%btnLogOut" textAlignment="RIGHT" textFill="WHITE" />
          </children>
