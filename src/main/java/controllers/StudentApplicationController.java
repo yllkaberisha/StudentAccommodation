@@ -14,11 +14,23 @@ public class StudentApplicationController {
     @FXML
     private TextField txtAverageGrade;
 
-    public StudentApplicationController(TextField txtFaculty, TextField txtYearsOfStudies, TextField txtMajor, TextField txtAverageGrade) {
-        this.txtFaculty = txtFaculty;
-        this.txtYearsOfStudies = txtYearsOfStudies;
-        this.txtMajor = txtMajor;
-        this.txtAverageGrade = txtAverageGrade;
+    // No-argument constructor
+    public StudentApplicationController() {
+    }
+
+    @FXML
+    public void handleSave(ActionEvent actionEvent) {
+        // Handle save logic here
+    }
+
+    @FXML
+    public void handleCancel(ActionEvent actionEvent) {
+        // Handle cancel logic here
+    }
+
+    @FXML
+    public void handleUpdate(ActionEvent actionEvent) {
+        // Handle update logic here
     }
 
     public TextField getTxtFaculty() {
@@ -36,16 +48,7 @@ public class StudentApplicationController {
     public TextField getTxtAverageGrade() {
         return txtAverageGrade;
     }
-    @FXML
-    public void  handleSave(ActionEvent ae){
 
-    }
-    @FXML
-    public void  handleCancel(ActionEvent ae){
-
-    }
-    @FXML
-    public void  handleUpdate(ActionEvent ae){
-
+    public void handleLogOut(ActionEvent actionEvent) {
     }
 }

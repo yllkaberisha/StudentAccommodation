@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnector {
     private static String URL = "jdbc:mysql://localhost:3306/StudentAccommodation";
     private static String USER = "root";
-    private static String PASSWORD = "Gonalanipona12.10";
+    private static String PASSWORD = "root";
 
     private static Connection connection = null;
 

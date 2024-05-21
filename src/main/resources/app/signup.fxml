@@ -7,7 +7,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpController">
    <left>
-      <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #06768d;" BorderPane.alignment="CENTER">
          <children>
             <FontAwesomeIcon fill="WHITE" glyphName="UNIVERSITY" layoutX="135.0" layoutY="220.0" size="70" />
             <Text fill="WHITE" layoutX="92.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtStudentAccomodation">
@@ -21,7 +21,7 @@
    <center>
       <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="250.0" layoutY="15.0" mnemonicParsing="false" onAction="#handelChangeLanguage" prefHeight="27.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="EN | SQ" textFill="WHITE" />
+            <Button layoutX="250.0" layoutY="15.0" mnemonicParsing="false" onAction="#handelChangeLanguage" prefHeight="27.0" prefWidth="82.0" style="-fx-background-color: #06768d;" text="EN | SQ" textFill="WHITE" />
             <Label layoutX="59.0" layoutY="200.0" text="%lblFirstName" />
             <Label layoutX="59.0" layoutY="240.0" text="%lblLastName" />
             <Label layoutX="60.0" layoutY="280.0" prefHeight="18.0" prefWidth="42.0" text="%lblGender" />
@@ -30,20 +30,20 @@
             <Label layoutX="58.0" layoutY="400.0" text="%lblPassword" />
             <Label layoutX="60.0" layoutY="440.0" text="%lblConfirmPassword" />
 
-            <TextField fx:id="txtFirstName" layoutX="176.0" layoutY="189.0" promptText="%lblFirstName" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="txtLastName" layoutX="176.0" layoutY="229.0" promptText="%lblLastName" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="txtEmail" layoutX="176.0" layoutY="349.0" promptText="%lblEmail" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="pwdPassword" layoutX="176.0" layoutY="389.0" promptText="%lblPassword" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="pwdConfirmPassword" layoutX="176.0" layoutY="429.0" promptText="%lblConfirmPassword" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="txtFirstName" layoutX="176.0" layoutY="189.0" promptText="%lblFirstName" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="txtLastName" layoutX="176.0" layoutY="229.0" promptText="%lblLastName" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="txtEmail" layoutX="176.0" layoutY="349.0" promptText="%lblEmail" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="pwdPassword" layoutX="176.0" layoutY="389.0" promptText="%lblPassword" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="pwdConfirmPassword" layoutX="176.0" layoutY="429.0" promptText="%lblConfirmPassword" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
 
-            <FontAwesomeIcon fill="#0598ff" glyphName="USERS" layoutX="167.0" layoutY="117.0" size="35" />
-            <Text fill="#0598ff" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblUserLogin" textAlignment="CENTER" wrappingWidth="349.17578887939453">
+            <FontAwesomeIcon fill="#06768d" glyphName="USERS" layoutX="167.0" layoutY="117.0" size="35" />
+            <Text fill="#06768d" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblUserLogin" textAlignment="CENTER" wrappingWidth="349.17578887939453">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
-            <Button layoutX="85.0" layoutY="468.0" mnemonicParsing="false" onAction="#handleSignUp" style="-fx-background-color: #0598ff;" text="%btnSignUp" textFill="WHITE" />
-            <Button layoutX="219.0" layoutY="468.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #0598ff;" text="%btnCancel" textFill="WHITE" />
+            <Button layoutX="85.0" layoutY="468.0" mnemonicParsing="false" onAction="#handleSignUp" style="-fx-background-color: #06768d;" text="%btnSignUp" textFill="WHITE" />
+            <Button layoutX="219.0" layoutY="468.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #06768d;" text="%btnCancel" textFill="WHITE" />
             <RadioButton fx:id="rButton1" layoutX="176.0" layoutY="281.0" mnemonicParsing="false" text="%radioMale">
                <toggleGroup>
                   <ToggleGroup fx:id="tgGender" />

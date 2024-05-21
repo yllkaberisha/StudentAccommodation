@@ -37,7 +37,7 @@ public class LoginController {
             } else if(user.getRole().equals("user")) {
                 System.out.println("user");
 
-                Navigator.navigate(ae, Navigator.STUDENT_ACCOMMODATION_PAGE);
+                Navigator.navigate(ae, Navigator.STUDENT_APPLICATION_PAGE);
             }
         } else {
             // Show login failed message

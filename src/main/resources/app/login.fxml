@@ -42,27 +42,27 @@
     <right>
         <AnchorPane prefHeight="300.0" prefWidth="350.0" BorderPane.alignment="CENTER">
             <children>
-                <Button layoutX="250.0" layoutY="15.0" mnemonicParsing="false" onAction="#handelChangeLanguage" prefHeight="27.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="EN | SQ" textFill="WHITE" />
+                <Button layoutX="250.0" layoutY="15.0" mnemonicParsing="false" onAction="#handelChangeLanguage" prefHeight="27.0" prefWidth="82.0" style="-fx-background-color: #06768d;" text="EN | SQ" textFill="WHITE" />
 
-                <TextField fx:id="txtEmail" layoutX="119.0" layoutY="217.0" promptText="%lblEmail" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-                <PasswordField fx:id="pwdPassword" layoutX="119.0" layoutY="256.0" promptText="%lblPassword" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-                <FontAwesomeIcon fill="#0598ff" glyphName="KEY" layoutX="83.0" layoutY="277.0" size="20" />
-                <FontAwesomeIcon fill="#0598ff" glyphName="USER" layoutX="86.0" layoutY="239.0" size="20" />
-                <Button layoutX="145.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="27.0" prefWidth="82.0" style="-fx-background-color: #0598ff;" text="%btnLogin" textFill="WHITE" />
-                <FontAwesomeIcon fill="#0598ff" glyphName="USERS" layoutX="168.0" layoutY="107.0" size="35" />
-                <Text fill="#0598ff" layoutX="-1.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblUserLogin" textAlignment="CENTER" wrappingWidth="350.17579650878906">
+                <TextField fx:id="txtEmail" layoutX="119.0" layoutY="217.0" promptText="%lblEmail" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+                <PasswordField fx:id="pwdPassword" layoutX="119.0" layoutY="256.0" promptText="%lblPassword" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+                <FontAwesomeIcon fill="#06768d" glyphName="KEY" layoutX="83.0" layoutY="277.0" size="20" />
+                <FontAwesomeIcon fill="#06768d" glyphName="USER" layoutX="86.0" layoutY="239.0" size="20" />
+                <Button layoutX="145.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="27.0" prefWidth="82.0" style="-fx-background-color: #06768d;" text="%btnLogin" textFill="WHITE" />
+                <FontAwesomeIcon fill="#06768d" glyphName="USERS" layoutX="168.0" layoutY="107.0" size="35" />
+                <Text fill="#06768d" layoutX="-1.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblUserLogin" textAlignment="CENTER" wrappingWidth="350.17579650878906">
                     <font>
                         <Font size="22.0" />
                     </font>
                 </Text>
                 <Button layoutX="323.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-                <Text fill="#0598ff" layoutX="123.0" layoutY="305.0" onMouseClicked="#handleForgotPasswordClick" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblForgotYourPassword" underline="true" />
-                <Text fill="#0598ff" layoutX="150.0" layoutY="473.0" onMouseClicked="#handleCreateAccountClick" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblCreateAccount" underline="true" wrappingWidth="86.7171630859375" />
+                <Text fill="#06768d" layoutX="123.0" layoutY="305.0" onMouseClicked="#handleForgotPasswordClick" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblForgotYourPassword" underline="true" />
+                <Text fill="#06768d" layoutX="150.0" layoutY="473.0" onMouseClicked="#handleCreateAccountClick" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblCreateAccount" underline="true" wrappingWidth="86.7171630859375" />
             </children>
         </AnchorPane>
     </right>
     <left>
-        <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #06768d;" BorderPane.alignment="CENTER">
             <children>
                 <Text fill="WHITE" layoutX="98.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtStudentAccomodation">
                     <font>
