@@ -34,10 +34,10 @@ public class LoginController {
             if (user.getRole().equals("admin")) {
                 System.out.println("admin");
                 Navigator.navigate(ae, Navigator.ADMIN_MAIN);
-            } else {
+            } else if(user.getRole().equals("user")) {
                 System.out.println("user");
 
-//                Navigator.navigate(ae, Navigator.USER_HOME_PAGE);
+                Navigator.navigate(ae, Navigator.STUDENT_ACCOMMODATION_PAGE);
             }
         } else {
             // Show login failed message

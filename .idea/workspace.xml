@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="transates">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/app/StudentAccommodationController.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/StudentAccommodationController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/StudentAccommodationController.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +160,17 @@
   <component name="UnknownFeatures">
     <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
     <option featureType="dependencySupport" implementationName="java:org.openjfx:javafx-base" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="login design" />
