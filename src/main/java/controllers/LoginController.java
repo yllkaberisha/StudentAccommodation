@@ -54,4 +54,9 @@ public class LoginController {
     public void handleCreateAccountClick(MouseEvent me)  {
         Navigator.navigate(me,Navigator.CREATE_ACCOUNT_PAGE);
     }
+
+    public void handelChangeLanguage(ActionEvent ae) {
+        Navigator.changeLanguage();
+        Navigator.navigate(ae,Navigator.LOGIN_PAGE);
+    }
 }

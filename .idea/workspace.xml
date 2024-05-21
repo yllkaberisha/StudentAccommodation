@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="query changed">
+    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="running the app">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/controllers/DashboardController.java" afterDir="false" />
@@ -13,9 +13,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ChangePasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ChangePasswordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SideBarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SideBarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/dto/ChangeUserPasswordDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/dto/ChangeUserPasswordDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/admin_users.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/admin_users.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/sidebar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/sidebar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/signup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/content_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translations/content_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/content_sq.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translations/content_sq.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

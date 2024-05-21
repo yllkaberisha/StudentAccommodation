@@ -39,7 +39,6 @@ public class SideBarController {
     @FXML
     private Button logOutButton;
 
-    // Initialize method to set up any necessary data or bindings
     @FXML
     public void initialize() {
         // Any initialization logic can go here
@@ -57,21 +56,18 @@ public class SideBarController {
     @FXML
     private void usersPageClick(MouseEvent event) {
         System.out.println("Users button clicked");
-        // Use Navigator to switch to the users page
         loadPage(Navigator.ADMIN_USERS);
     }
 
     @FXML
     private void roomsPageClick(MouseEvent event) {
         System.out.println("Rooms button clicked");
-        // Use Navigator to switch to the rooms page
         loadPage(Navigator.ADMIN_ROOMS);
     }
 
     @FXML
     private void applicationsPageClick(MouseEvent event) {
         System.out.println("Applications button clicked");
-        // Use Navigator to switch to the applications page
         loadPage(Navigator.ADMIN_APPLICATIONS);
     }
 
@@ -85,23 +81,8 @@ public class SideBarController {
     public void changeLanguageClick(MouseEvent event) {
         Navigator.changeLanguage();
         Navigator.navigate(event, Navigator.ADMIN_MAIN);
-        reloadCurrentPage();
-    }
-
-    private void reloadCurrentPage() {
-//        String currentFxml = (String) bp.getUserData();
-//        if (currentFxml != null) {
-//            loadPage(currentFxml);
-//        }
-
 //        loadPage(Navigator.ADMIN_MAIN);
-
-
-        loadPage(Navigator.ADMIN_USERS);
-
     }
-
-
 
     // Helper method to load pages into the center of the BorderPane
     private void loadPage(String page) {

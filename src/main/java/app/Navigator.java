@@ -54,8 +54,6 @@ public class Navigator {
         else{
             Locale.setDefault(Locale.ENGLISH);
         }
-
-        System.out.println(degaultLocale.getLanguage());
     }
 
     public static Pane loadPane(String form){

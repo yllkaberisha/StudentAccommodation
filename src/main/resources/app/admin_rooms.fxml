@@ -6,6 +6,6 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="144.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Rooms" wrappingWidth="156.71624755859375" />
+      <Text layoutX="144.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAdminRooms" wrappingWidth="156.71624755859375" />
    </children>
 </AnchorPane>
