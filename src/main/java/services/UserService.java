@@ -4,7 +4,12 @@ import models.User;
 import models.dto.*;
 import repositories.UserRepository;
 
+import java.util.List;
+
 public class UserService {
+
+    private static UserRepository userRepository = new UserRepository();
+
     public static boolean signUp(UserDto userData) {
         String password = userData.getPassword();
         String confirmPassword = userData.getConfirmPassword();
@@ -13,9 +18,7 @@ public class UserService {
             return false;
         }
         String salt = PasswordHasher.generateSalt();
-        String passwordHash = PasswordHasher.generateSaltedHash(
-                password, salt
-        );
+        String passwordHash = PasswordHasher.generateSaltedHash(password, salt);
         CreateUserDto createUserData = new CreateUserDto(
                 userData.getFirstName(),
                 userData.getLastName(),
@@ -45,9 +48,10 @@ public class UserService {
             return null;
         }
     }
+
     public static boolean changePassword(ChangePasswordDto changePasswordData){
         User user = UserRepository.getByEmail(changePasswordData.getEmail());
-        if (user==null){
+        if (user == null) {
             return false;
         }
 
@@ -58,9 +62,7 @@ public class UserService {
             return false;
         }
         String salt = PasswordHasher.generateSalt();
-        String passwordHash = PasswordHasher.generateSaltedHash(
-                password, salt
-        );
+        String passwordHash = PasswordHasher.generateSaltedHash(password, salt);
         ChangeUserPasswordDto changeUserPasswordDto = new ChangeUserPasswordDto(
                 user.getEmail(),
                 passwordHash,
@@ -69,8 +71,16 @@ public class UserService {
 
         return UserRepository.change(changeUserPasswordDto);
     }
+
+    public static List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public static long countMaleUsers(List<User> users) {
+        return users.stream().filter(user -> "M".equals(user.getGender())).count();
+    }
+
+    public static long countFemaleUsers(List<User> users) {
+        return users.stream().filter(user -> "F".equals(user.getGender())).count();
+    }
 }
-
-
-
-

@@ -21,12 +21,15 @@ public class Navigator {
     public final static  String CREATE_ACCOUNT_PAGE = "signup.fxml";
     public final static  String CHANGE_PASSWORD_ACCOUNT_PAGE = "changepassword.fxml";
     public static final String ADMIN_MAIN ="adminMain.fxml" ;
+    public final static String DASHBOARD_PAGE = "dashboard.fxml"; // Ensure to add this
+
 
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
         navigate(stage, form);
     }
+
 
     public static void navigate(Stage stage, String form){
         Pane formPane = loadPane(form);

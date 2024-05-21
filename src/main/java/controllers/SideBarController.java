@@ -49,9 +49,9 @@ public class SideBarController {
     @FXML
     private void dashboardPage(MouseEvent event) {
         System.out.println("Dashboard button clicked");
-        // Use Navigator to switch to the dashboard page
-//        loadPage(Navigator.LOGIN_PAGE); // Update with actual dashboard page path
-        bp.setCenter(ap);
+        // Use Navigator to switch to the dashboard pag
+        Navigator.navigate(event,Navigator.DASHBOARD_PAGE); // Update with actual dashboard page path
+//        bp.setCenter(ap);
     }
 
     @FXML
