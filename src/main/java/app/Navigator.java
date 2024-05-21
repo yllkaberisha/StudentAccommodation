@@ -2,6 +2,7 @@ package app;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -22,10 +23,11 @@ public class Navigator {
     public final static  String CHANGE_PASSWORD_ACCOUNT_PAGE = "changepassword.fxml";
     public static final String ADMIN_MAIN ="adminMain.fxml" ;
     public final static String DASHBOARD_PAGE = "dashboard.fxml"; // Ensure to add this
-    public final static String STUDENT_ACCOMMODATION_PAGE = "StudentAccommodationController.fxml";
+    public final static String STUDENT_ACCOMMODATION_PAGE = "studentapplication.fxml";
 
 
     public static void navigate(Event event, String form){
+
         Node eventNode = (Node) event.getSource();
         Stage stage = (Stage) eventNode.getScene().getWindow();
         navigate(stage, form);
