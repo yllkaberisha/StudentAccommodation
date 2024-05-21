@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Text layoutX="208.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAdminUsers" wrappingWidth="161.859130859375" />
-      <TableView layoutX="9.0" layoutY="154.0" prefHeight="200.0" prefWidth="515.0">
-        <columns>
-          <TableColumn fx:id="IDCol" prefWidth="45.42857551574707" text="ID" />
-          <TableColumn fx:id="FirstNameCol" prefWidth="75.5714225769043" text="FirstName" />
-            <TableColumn fx:id="LastNameCol" prefWidth="78.85714721679688" text="LastName" />
-            <TableColumn fx:id="GenderCol" prefWidth="87.28572082519531" text="Gender" />
-            <TableColumn fx:id="EmailCol" prefWidth="79.5714111328125" text="Email" />
-            <TableColumn fx:id="RoleCol" prefWidth="76.0" text="Role" />
-            <TableColumn fx:id="RoomCol" prefWidth="76.0" text="Room" />
-        </columns>
-      </TableView>
-      <Button layoutX="471.0" layoutY="67.0" mnemonicParsing="false" text="Filter" />
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminUsersController">
+    <children>
+        <Text layoutX="208.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAdminUsers" wrappingWidth="161.859130859375" />
 
-   </children>
+        <TextField fx:id="txtID" layoutX="33.0" layoutY="64.0" prefHeight="27.0" prefWidth="97.0" promptText="%lblID" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+        <TextField fx:id="txtFirstName" layoutX="159.0" layoutY="64.0" prefHeight="27.0" prefWidth="97.0" promptText="%lblFirstName" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+        <TextField fx:id="txtLastName" layoutX="277.0" layoutY="64.0" prefHeight="27.0" prefWidth="97.0" promptText="%lblLastName" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+        <TextField fx:id="txtEmail" layoutX="33.0" layoutY="129.0" promptText="%lblEmail" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+        <TextField fx:id="txtRoom" layoutX="394.0" layoutY="64.0" prefHeight="27.0" prefWidth="97.0" promptText="%lblRoom" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+        <TextField fx:id="txtGender" layoutX="197.0" layoutY="129.0" prefHeight="27.0" prefWidth="97.0" promptText="%lblGender" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+        <TextField fx:id="txtRole" layoutX="311.0" layoutY="129.0" prefHeight="27.0" prefWidth="97.0" promptText="%lblRole" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+
+        <TableView fx:id="tableView" layoutX="17.0" layoutY="235.0" prefHeight="200.0" prefWidth="500.0">
+            <columns>
+                <TableColumn fx:id="IDCol" prefWidth="45.42857551574707" text="%lblID" />
+                <TableColumn fx:id="FirstNameCol" prefWidth="75.5714225769043" text="%lblFirstName" />
+                <TableColumn fx:id="LastNameCol" prefWidth="78.85714721679688" text="%lblLastName" />
+                <TableColumn fx:id="GenderCol" prefWidth="87.28572082519531" text="%lblGender" />
+                <TableColumn fx:id="EmailCol" prefWidth="79.5714111328125" text="%lblEmail" />
+                <TableColumn fx:id="RoleCol" prefWidth="76.0" text="%lblRole" />
+                <TableColumn fx:id="RoomCol" prefWidth="76.0" text="%lblRoom" />
+            </columns>
+        </TableView>
+        <Button layoutX="455.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleFilterClick" style="-fx-background-color: #06768d;" text="%btnFilter" textFill="WHITE" />
+    </children>
 </AnchorPane>
