@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="query changed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/signup.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="transates" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +119,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716245665891</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="transates">
+      <option name="closed" value="true" />
+      <created>1716276853028</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716276853028</updated>
+    </task>
+    <task id="LOCAL-00007" summary="transates">
+      <option name="closed" value="true" />
+      <created>1716276967475</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716276967475</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -135,6 +148,7 @@
     <MESSAGE value="content_en" />
     <MESSAGE value="buttons" />
     <MESSAGE value="query changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="query changed" />
+    <MESSAGE value="transates" />
+    <option name="LAST_COMMIT_MESSAGE" value="transates" />
   </component>
 </project>
