@@ -91,6 +91,7 @@ public class UserRepository {
 
     private static User getFromResultSet(ResultSet result){
         try{
+            int id = result.getInt("id");
             String firstName = result.getString("firstName");
             String lastName = result.getString("lastName");
             String gender = result.getString("gender");
@@ -98,7 +99,7 @@ public class UserRepository {
             String email = result.getString("email");
             String salt = result.getString("salt");
             String passwordHash = result.getString("passwordHash");
-            return new User(firstName, lastName, gender, role, email, salt, passwordHash);
+            return new User(id, firstName, lastName, gender, role, email, salt, passwordHash);
         }catch (Exception e){
             e.printStackTrace();
             return null;

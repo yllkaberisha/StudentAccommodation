@@ -1,10 +1,9 @@
 package controllers;
 
 import app.Navigator;
+import app.SessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import models.dto.ApplicationDto;
 import services.UserService;
@@ -33,13 +32,15 @@ public class StudentApplicationController {
 
     @FXML
     public void handleSave(ActionEvent actionEvent) {
+        int id = SessionManager.getUser().getID();
         String faculty = txtFaculty.getText();
         Integer yearsOfStudies = Integer.parseInt(txtYearsOfStudies.getText());
         String major = txtMajor.getText();
         double averageGrade = Double.parseDouble(txtAverageGrade.getText());
 
+        System.out.println(id);
         // Krijo një instance të ApplicationDto
-        ApplicationDto applicationData = new ApplicationDto(faculty, yearsOfStudies, major, averageGrade);
+        ApplicationDto applicationData = new ApplicationDto(id, faculty, yearsOfStudies, major, averageGrade);
 
         // Thirr funksionin për të ruajtur aplikacionin në bazën e të dhënave
         boolean saved = UserService.saveInformation(applicationData);
@@ -90,12 +91,13 @@ public class StudentApplicationController {
         this.applicationId = applicationId;
     }
     public void handleUpdate(ActionEvent actionEvent) {
+        int id = SessionManager.getUser().getID();
         String faculty = txtFaculty.getText();
         Integer yearsOfStudies = Integer.parseInt(txtYearsOfStudies.getText());
         String major = txtMajor.getText();
         double averageGrade = Double.parseDouble(txtAverageGrade.getText());
         if (applicationId != -1) {
-            ApplicationDto applicationData = new ApplicationDto(faculty, yearsOfStudies, major, averageGrade);
+            ApplicationDto applicationData = new ApplicationDto(id,faculty, yearsOfStudies, major, averageGrade);
 
             boolean updated = UserService.updateInformation(applicationData);
 

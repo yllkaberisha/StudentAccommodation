@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="button connected with database">
+    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="running the app">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/StudentApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/StudentApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/dto/ApplicationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/dto/ApplicationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/DBConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,15 +127,7 @@
       <option name="project" value="LOCAL" />
       <updated>1716245665891</updated>
     </task>
-    <task id="LOCAL-00006" summary="button connected with database">
-      <option name="closed" value="true" />
-      <created>1716336456623</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1716336456623</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -144,7 +140,6 @@
     <MESSAGE value="content_en" />
     <MESSAGE value="buttons" />
     <MESSAGE value="query changed" />
-    <MESSAGE value="button connected with database" />
-    <option name="LAST_COMMIT_MESSAGE" value="button connected with database" />
+    <option name="LAST_COMMIT_MESSAGE" value="query changed" />
   </component>
 </project>

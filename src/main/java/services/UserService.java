@@ -88,18 +88,20 @@ public class UserService {
         return users.stream().filter(user -> "F".equals(user.getGender())).count();
     }
     public static boolean saveInformation(ApplicationDto applicationData) {
+        int id = applicationData.getID();
         String faculty = applicationData.getFaculty();
         Integer yearsOfStudies = applicationData.getYearsOfStudies();
         String major = applicationData.getMajor();
         double averageGrade = applicationData.getAverageGrade();
 
         try (Connection connection = DBConnector.getConnection()) {
-            String query = "INSERT INTO application (applicationDate, faculty, yearOfStudies, major, averageGrade, status ) VALUES (NOW(), ?, ?, ?, ?, 'pending')";
+            String query = "INSERT INTO application (userID, applicationDate, faculty, yearOfStudies, major, averageGrade, status ) VALUES (?, NOW(), ?, ?, ?, ?, 'pending')";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, faculty);
-            preparedStatement.setInt(2, yearsOfStudies);
-            preparedStatement.setString(3, major);
-            preparedStatement.setDouble(4, averageGrade);
+            preparedStatement.setInt(1, id);
+            preparedStatement.setString(2, faculty);
+            preparedStatement.setInt(3, yearsOfStudies);
+            preparedStatement.setString(4, major);
+            preparedStatement.setDouble(5, averageGrade);
 
             int rowsInserted = preparedStatement.executeUpdate();
             return rowsInserted > 0;
