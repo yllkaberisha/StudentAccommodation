@@ -20,15 +20,16 @@
     </left>
     <center>
         <AnchorPane prefHeight="500.0" prefWidth="401.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+            <Label fx:id="statusLabel" layoutX="99.0" layoutY="72.0" text="Status: Pending" />
             <children>
-                <TextField id="Faculty" layoutX="137.0" layoutY="112.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+                <TextField id="Faculty" fx:id="txtFaculty" layoutX="137.0" layoutY="112.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
                 <Text fill="#23a7ea" layoutX="48.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty" />
                 <Label layoutX="24.0" layoutY="169.0" text="Year of Studies" textFill="#23a7ea" />
-                <TextField id="YearOfStudies" layoutX="137.0" layoutY="164.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+                <TextField id="YearOfStudies" fx:id="txtYearsOfStudies" layoutX="137.0" layoutY="164.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
                 <Label layoutX="48.0" layoutY="211.0" text="Major" textFill="#23a7ea" />
-                <TextField id="Major" layoutX="137.0" layoutY="206.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+                <TextField id="Major" fx:id="txtMajor" layoutX="137.0" layoutY="206.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
                 <Label layoutX="25.0" layoutY="258.0" text="Average grade" textFill="#23a7ea" />
-                <TextField id="AverageGrade" layoutX="137.0" layoutY="253.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
+                <TextField id="AverageGrade" fx:id="txtAverageGrade" layoutX="137.0" layoutY="253.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
                 <Button layoutX="22.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleSave" style="-fx-background-color: #3da1cc;" text="Save" textFill="WHITE" />
                 <Button layoutX="111.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #3da1cc;" text="Cancel" textFill="WHITE" />
                 <Button layoutX="212.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleUpdate" style="-fx-background-color: #3da1cc;" text="Update" textFill="WHITE" />
