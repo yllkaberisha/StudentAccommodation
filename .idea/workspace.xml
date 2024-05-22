@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="Update admin application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ChangePasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ChangePasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/DBConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/app/admin_applications.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/admin_applications.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
