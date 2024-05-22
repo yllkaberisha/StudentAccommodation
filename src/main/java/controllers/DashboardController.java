@@ -21,10 +21,22 @@ public class DashboardController implements Initializable {
     private Label totalFemaleUsersLabel;
     @FXML
     private PieChart genderPieChart;
+    @FXML
+    private PieChart dormPieChart;
+    @FXML
+    private Label totalDormLabel;
+    @FXML
+    private Label maleDormCountLabel;
+    @FXML
+    private Label femaleDormCountLabel;
+
+    @FXML
+    private Label totalDormCountLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadUserStatistics();
+        loadDormStatistics();
     }
 
     private void loadUserStatistics() {
@@ -39,11 +51,28 @@ public class DashboardController implements Initializable {
 
         updateGenderPieChart(totalMaleUsers, totalFemaleUsers);
     }
+    private void loadDormStatistics() {
+        int maleDormCount = 3; // Example value, replace with actual logic if necessary
+        int femaleDormCount = 5; // Example value, replace with actual logic if necessary
+        int totalDormCount = maleDormCount + femaleDormCount;
+
+        maleDormCountLabel.setText(String.valueOf(maleDormCount));
+        femaleDormCountLabel.setText(String.valueOf(femaleDormCount));
+        totalDormCountLabel.setText(String.valueOf(totalDormCount));
+
+        updateDormPieChart(maleDormCount, femaleDormCount);
+    }
 
     private void updateGenderPieChart(long maleCount, long femaleCount) {
         PieChart.Data maleData = new PieChart.Data("Male", maleCount);
         PieChart.Data femaleData = new PieChart.Data("Female", femaleCount);
         genderPieChart.getData().clear();
         genderPieChart.getData().addAll(maleData, femaleData);
+    }
+    private void updateDormPieChart(int maleDormCount, int femaleDormCount) {
+        PieChart.Data maleDormData = new PieChart.Data("Male", maleDormCount);
+        PieChart.Data femaleDormData = new PieChart.Data("Female", femaleDormCount);
+        dormPieChart.getData().clear();
+        dormPieChart.getData().addAll(maleDormData, femaleDormData);
     }
 }
