@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import models.dto.UserDto;
 import services.UserService;
+import utils.AlertUtil;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,13 +53,23 @@ public class SignUpController implements Initializable {
         );
 
         boolean response = UserService.signUp(userSignUpData);
-
         if (response) {
             System.out.println("User created");
+            AlertUtil.showSuccessAlert(
+                    "User Creation Success",
+                    "Account Created",
+                    "The user account has been successfully created."
+            );
             Navigator.navigate(ae, Navigator.LOGIN_PAGE);
         } else {
             System.out.println("User creation failed");
+            AlertUtil.showErrorAlert(
+                    "User Creation Failed",
+                    "Creation Error",
+                    "There was an error creating the user account. Please try again."
+            );
         }
+
     }
 
     @FXML

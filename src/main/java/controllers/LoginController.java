@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import models.dto.LoginUserDto;
 import models.User;
 import services.UserService;
+import utils.AlertUtil;
 
 import java.io.IOException;
 
@@ -42,6 +43,13 @@ public class LoginController {
         } else {
             // Show login failed message
             System.out.println("Login failed. Invalid username or password.");
+
+            AlertUtil.showErrorAlert(
+                    "Login Failed",
+                    "Authentication Error",
+                    "Your username or password is incorrect. Please try again."
+            );
+
         }
 
     }

@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import models.User;
 import models.dto.ChangePasswordDto;
 import services.UserService;
+import utils.AlertUtil;
 
 public class ChangePasswordController {
     @FXML
@@ -18,7 +19,7 @@ public class ChangePasswordController {
     @FXML
     private PasswordField pwdConfirmPassword;
     @FXML
-    public void handleChangePassword(ActionEvent ae){
+    public void handleChangePassword(ActionEvent ae) {
         ChangePasswordDto changePasswordDto = new ChangePasswordDto(
                 this.txtEmail.getText(),
                 this.pwdNewPassword.getText(),
@@ -26,6 +27,21 @@ public class ChangePasswordController {
         );
         boolean changed = UserService.changePassword(changePasswordDto);
 
+        if (changed) {
+            AlertUtil.showSuccessAlert(
+                    "Password Change Success",
+                    "Password Updated",
+                    "Your password has been successfully updated."
+            );
+//            System.out.println("Navigating to login page...");
+            Navigator.navigate(ae, Navigator.LOGIN_PAGE);
+        } else {
+            AlertUtil.showErrorAlert(
+                    "Password Change Failed",
+                    "Update Error",
+                    "There was an error updating your password. Please try again."
+            );
+        }
     }
     @FXML
     public void handleBack(MouseEvent me){

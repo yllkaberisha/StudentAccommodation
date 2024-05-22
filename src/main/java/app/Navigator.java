@@ -24,6 +24,7 @@ public class Navigator {
     public static final String ADMIN_MAIN ="adminMain.fxml" ;
     public final static String DASHBOARD_PAGE = "dashboard.fxml"; // Ensure to add this
     public final static String STUDENT_APPLICATION_PAGE = "student_application.fxml";
+    private static ResourceBundle bundle = ResourceBundle.getBundle("translations.content", Locale.getDefault());
 
 
     public static void navigate(Event event, String form){
@@ -37,6 +38,8 @@ public class Navigator {
     public static void navigate(Stage stage, String form){
         Pane formPane = loadPane(form);
         Scene newScene = new Scene(formPane);
+        String title = bundle.getString("txtStudentAccomodation");
+        stage.setTitle(title);
         stage.setScene(newScene);
         stage.show();
     }
@@ -57,13 +60,10 @@ public class Navigator {
         else{
             Locale.setDefault(Locale.ENGLISH);
         }
+        bundle = ResourceBundle.getBundle("translations.content", Locale.getDefault());
     }
 
     public static Pane loadPane(String form){
-
-        ResourceBundle bundle = ResourceBundle.getBundle(
-                "translations.content", Locale.getDefault()
-        );
         FXMLLoader loader = new FXMLLoader(
                 Navigator.class.getResource(form), bundle
         );
