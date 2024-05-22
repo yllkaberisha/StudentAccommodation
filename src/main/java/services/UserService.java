@@ -87,68 +87,7 @@ public class UserService {
     public static long countFemaleUsers(List<User> users) {
         return users.stream().filter(user -> "F".equals(user.getGender())).count();
     }
-    public static boolean saveInformation(ApplicationDto applicationData) {
-        int id = applicationData.getID();
-        String faculty = applicationData.getFaculty();
-        Integer yearsOfStudies = applicationData.getYearsOfStudies();
-        String major = applicationData.getMajor();
-        double averageGrade = applicationData.getAverageGrade();
 
-        try (Connection connection = DBConnector.getConnection()) {
-            String query = "INSERT INTO application (userID, applicationDate, faculty, yearOfStudies, major, averageGrade, status ) VALUES (?, NOW(), ?, ?, ?, ?, 'pending')";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setString(2, faculty);
-            preparedStatement.setInt(3, yearsOfStudies);
-            preparedStatement.setString(4, major);
-            preparedStatement.setDouble(5, averageGrade);
 
-            int rowsInserted = preparedStatement.executeUpdate();
-            return rowsInserted > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-    public static boolean updateInformation(ApplicationDto applicationData) {
-        String faculty = applicationData.getFaculty();
-        Integer yearsOfStudies = applicationData.getYearsOfStudies();
-        String major = applicationData.getMajor();
-        double averageGrade = applicationData.getAverageGrade();
 
-        try (Connection connection = DBConnector.getConnection()) {
-            String query = "UPDATE application SET faculty=?, yearOfStudies=?, major=?, averageGrade=?, status='pending' WHERE applicationid=?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, faculty);
-            preparedStatement.setInt(2, yearsOfStudies);
-            preparedStatement.setString(3, major);
-            preparedStatement.setDouble(4, averageGrade);
-            preparedStatement.setString(5, "5");
-          //  preparedStatement.setInt(5, applicationId);
-
-            int rowsUpdated = preparedStatement.executeUpdate();
-            return rowsUpdated > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-    public static int getApplicationId(String faculty, int yearsOfStudies, String major, double averageGrade) {
-        try (Connection connection = DBConnector.getConnection()) {
-            String query = "SELECT id FROM application WHERE faculty=? AND yearOfStudies=? AND major=? AND averageGrade=?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, faculty);
-            preparedStatement.setInt(2, yearsOfStudies);
-            preparedStatement.setString(3, major);
-            preparedStatement.setDouble(4, averageGrade);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                return resultSet.getInt("id");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return -1; // Return -1 if application ID is not found
-    }
 }
