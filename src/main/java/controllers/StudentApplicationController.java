@@ -20,6 +20,7 @@ public class StudentApplicationController {
     private TextField txtMajor;
     @FXML
     private TextField txtAverageGrade;
+    private int applicationId;
 //    @FXML
 //    private Button saveButton;
 //
@@ -85,10 +86,28 @@ public class StudentApplicationController {
         addNumericValidation(txtYearsOfStudies);
         addDecimalValidation(txtAverageGrade);
     }
-
-    @FXML
+    public void setApplicationId(int applicationId) {
+        this.applicationId = applicationId;
+    }
     public void handleUpdate(ActionEvent actionEvent) {
-        // Handle update logic here
+        String faculty = txtFaculty.getText();
+        Integer yearsOfStudies = Integer.parseInt(txtYearsOfStudies.getText());
+        String major = txtMajor.getText();
+        double averageGrade = Double.parseDouble(txtAverageGrade.getText());
+        if (applicationId != -1) {
+            ApplicationDto applicationData = new ApplicationDto(faculty, yearsOfStudies, major, averageGrade);
+
+            boolean updated = UserService.updateInformation(applicationData);
+
+            if (updated) {
+                System.out.println("Application updated successfully!");
+                resetFormFields();
+//            updateButtonVisibility("Pending");
+//            setStatus("Pending");
+            } else {
+                System.out.println("Failed to update application.");
+            }
+        }
     }
 
     public TextField getTxtFaculty() {
@@ -131,4 +150,5 @@ public class StudentApplicationController {
             }
         });
     }
+
 }
