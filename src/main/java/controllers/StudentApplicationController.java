@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import models.dto.ApplicationDto;
+import repositories.UserRepository;
 import services.UserService;
 
 public class StudentApplicationController {
@@ -43,7 +44,7 @@ public class StudentApplicationController {
         ApplicationDto applicationData = new ApplicationDto(id, faculty, yearsOfStudies, major, averageGrade);
 
         // Thirr funksionin për të ruajtur aplikacionin në bazën e të dhënave
-        boolean saved = UserService.saveInformation(applicationData);
+        boolean saved = UserRepository.saveInformation(applicationData);
 
         if (saved) {
             System.out.println("Application saved successfully!");
@@ -99,7 +100,7 @@ public class StudentApplicationController {
         if (applicationId != -1) {
             ApplicationDto applicationData = new ApplicationDto(id,faculty, yearsOfStudies, major, averageGrade);
 
-            boolean updated = UserService.updateInformation(applicationData);
+            boolean updated = UserRepository.updateInformation(applicationData);
 
             if (updated) {
                 System.out.println("Application updated successfully!");

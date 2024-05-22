@@ -16,5 +16,13 @@ public class AdminService {
     public List<AdminUser> getByFilter(AdminUserFilter filter) {
         return repository.getByFilter(filter);
     }
+
+    public void updateUser(AdminUser selectedUser) {
+        repository.updateUser(selectedUser);
     }
+
+    public void deleteUser(AdminUser selectedUser) {
+        repository.deleteUser(selectedUser);
+    }
+}
 

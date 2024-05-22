@@ -8,9 +8,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import models.AdminUser;
 import models.filter.AdminUserFilter;
 import services.AdminService;
+import utils.AlertUtil;
 
 import java.util.List;
 
@@ -77,13 +79,29 @@ public class AdminUsersController {
         // Load data into the table
         List<AdminUser> usersList = service.getAllUsers();
         loadTableData(usersList);
+
+        // Add listener for row selection
+        tableView.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> populateTextFields(newValue)
+        );
     }
 
     private void loadTableData(List<AdminUser> usersList) {
         // Fetch data from the service
-
         ObservableList<AdminUser> users = FXCollections.observableArrayList(usersList);
         tableView.setItems(users);
+    }
+
+    private void populateTextFields(AdminUser user) {
+        if (user != null) {
+            txtID.setText(user.getId());
+            txtFirstName.setText(user.getFirstName());
+            txtLastName.setText(user.getLastName());
+            txtEmail.setText(user.getEmail());
+            txtRoom.setText(user.getRoom());
+            txtGender.setText(user.getGender());
+            txtRole.setText(user.getRole());
+        }
     }
 
     @FXML
@@ -99,5 +117,51 @@ public class AdminUsersController {
         AdminUserFilter filter = new AdminUserFilter(id, firstName, lastName, email, room, gender, role);
         List<AdminUser> filteredUsers = service.getByFilter(filter);
         loadTableData(filteredUsers);
+    }
+
+    @FXML
+    private void handleDeleteClick(ActionEvent actionEvent) {
+        AdminUser selectedUser = tableView.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            service.deleteUser(selectedUser);
+            tableView.getItems().remove(selectedUser);
+            AlertUtil.showSuccessAlert("Success", "User Deleted", "The user has been deleted successfully.");
+        } else {
+            AlertUtil.showWarningAlert("No Selection", "No User Selected", "Please select a user in the table.");
+        }
+    }
+
+    @FXML
+    private void handleUpdateClick(ActionEvent actionEvent) {
+        AdminUser selectedUser = tableView.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            selectedUser.setFirstName(txtFirstName.getText());
+            selectedUser.setLastName(txtLastName.getText());
+            selectedUser.setEmail(txtEmail.getText());
+            selectedUser.setRoom(txtRoom.getText());
+            selectedUser.setGender(txtGender.getText());
+            selectedUser.setRole(txtRole.getText());
+
+            service.updateUser(selectedUser);
+            tableView.refresh();
+            AlertUtil.showSuccessAlert("Success", "User Updated", "The user has been updated successfully.");
+        } else {
+            AlertUtil.showWarningAlert("No Selection", "No User Selected", "Please select a user in the table.");
+        }
+    }
+
+    @FXML
+    private void handleClearClick(ActionEvent actionEvent) {
+        txtID.clear();
+        txtFirstName.clear();
+        txtLastName.clear();
+        txtEmail.clear();
+        txtRoom.clear();
+        txtGender.clear();
+        txtRole.clear();
+
+        List<AdminUser> usersList = service.getAllUsers();
+        loadTableData(usersList);
+//        AlertUtil.showSuccessAlert("Success", "Fields Cleared", "All input fields have been cleared.");
     }
 }
