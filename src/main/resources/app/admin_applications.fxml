@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="891.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="235.0" layoutY="42.0" text="Student Registration" textFill="#06768d">
+      <Label layoutX="289.0" layoutY="41.0" text="Student Registration" textFill="#06768d">
          <font>
             <Font name="Berlin Sans FB" size="37.0" />
          </font>
@@ -49,8 +49,8 @@
             <TableColumn fx:id="StatusColmn" prefWidth="75.0" text="Status" />
         </columns>
       </TableView>
-      <Button fx:id="btnAdd" layoutX="45.0" layoutY="375.0" mnemonicParsing="false" onAction="#Add" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="Add" textFill="WHITE" />
-      <Button fx:id="btnUpdate" layoutX="135.0" layoutY="375.0" mnemonicParsing="false" onAction="#Update" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="Update" textFill="WHITE" />
-      <Button fx:id="btnDelete" layoutX="219.0" layoutY="375.0" mnemonicParsing="false" onAction="#Delete" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="Delete" textFill="WHITE" />
+      <Button fx:id="btnAdd" layoutX="31.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="Add" textFill="WHITE" />
+      <Button fx:id="btnUpdate" layoutX="111.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="Update" textFill="WHITE" />
+      <Button fx:id="btnDelete" layoutX="189.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="Delete" textFill="WHITE" />
    </children>
 </AnchorPane>
