@@ -6,7 +6,11 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminUsersController">
     <children>
-        <Text layoutX="208.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAdminUsers" wrappingWidth="161.859130859375" />
+        <Text fill="#06768d" layoutX="3.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAdminUsers" textAlignment="CENTER" wrappingWidth="527.1757965087891">
+         <font>
+            <Font size="22.0" />
+         </font></Text>
+<!--        <Text layoutX="208.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAdminUsers" wrappingWidth="161.859130859375" />-->
 
         <TextField fx:id="txtID" layoutX="33.0" layoutY="64.0" prefHeight="27.0" prefWidth="97.0" promptText="%lblID" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
         <TextField fx:id="txtFirstName" layoutX="159.0" layoutY="64.0" prefHeight="27.0" prefWidth="97.0" promptText="%lblFirstName" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
@@ -18,15 +22,19 @@
 
         <TableView fx:id="tableView" layoutX="17.0" layoutY="235.0" prefHeight="200.0" prefWidth="500.0">
             <columns>
-                <TableColumn fx:id="IDCol" prefWidth="45.42857551574707" text="%lblID" />
-                <TableColumn fx:id="FirstNameCol" prefWidth="75.5714225769043" text="%lblFirstName" />
+                <TableColumn fx:id="IDCol" prefWidth="35.71426200866699" text="%lblID" />
+                <TableColumn fx:id="FirstNameCol" prefWidth="86.00000762939453" text="%lblFirstName" />
                 <TableColumn fx:id="LastNameCol" prefWidth="78.85714721679688" text="%lblLastName" />
-                <TableColumn fx:id="GenderCol" prefWidth="87.28572082519531" text="%lblGender" />
-                <TableColumn fx:id="EmailCol" prefWidth="79.5714111328125" text="%lblEmail" />
-                <TableColumn fx:id="RoleCol" prefWidth="76.0" text="%lblRole" />
-                <TableColumn fx:id="RoomCol" prefWidth="76.0" text="%lblRoom" />
+                <TableColumn fx:id="GenderCol" prefWidth="37.42857360839844" text="%lblGender" />
+                <TableColumn fx:id="EmailCol" prefWidth="100.28570556640625" text="%lblEmail" />
+                <TableColumn fx:id="RoleCol" minWidth="0.0" prefWidth="82.2857666015625" text="%lblRole" />
+                <TableColumn fx:id="RoomCol" prefWidth="74.0" text="%lblRoom" />
             </columns>
         </TableView>
+        <Button layoutX="33.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleDeleteClick" style="-fx-background-color: #06768d;" text="%btnDelete" textFill="WHITE" />
+        <Button layoutX="118.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleUpdateClick" style="-fx-background-color: #06768d;" text="%btnUpdate" textFill="WHITE" />
+
         <Button layoutX="455.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleFilterClick" style="-fx-background-color: #06768d;" text="%btnFilter" textFill="WHITE" />
+      <Button layoutX="204.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleClearClick" style="-fx-background-color: #06768d;" text="%btnClear" textFill="WHITE" />
     </children>
 </AnchorPane>
