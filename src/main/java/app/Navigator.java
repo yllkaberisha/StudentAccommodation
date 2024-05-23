@@ -22,7 +22,7 @@ public class Navigator {
     public final static  String CREATE_ACCOUNT_PAGE = "signup.fxml";
     public final static  String CHANGE_PASSWORD_ACCOUNT_PAGE = "changepassword.fxml";
     public static final String ADMIN_MAIN ="adminMain.fxml" ;
-    public final static String DASHBOARD_PAGE = "dashboard.fxml"; // Ensure to add this
+    public final static String DASHBOARD_PAGE = "dashboard.fxml";
     public final static String STUDENT_APPLICATION_PAGE = "student_application.fxml";
     private static ResourceBundle bundle = ResourceBundle.getBundle("translations.content", Locale.getDefault());
 
