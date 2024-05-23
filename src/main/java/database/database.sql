@@ -69,3 +69,17 @@ INSERT INTO ALLOCATION (applicationID, roomID, allocationDate, userID)
 VALUES 
     (1, 1, '2024-04-29', 3),
     (2, 2, '2024-04-29', 3);
+
+-- Total Male Users
+SELECT COUNT(*) AS totalMaleUsers
+FROM users
+WHERE gender = 'M';
+
+-- Total Female Users
+SELECT COUNT(*) AS totalFemaleUsers
+FROM users
+WHERE gender = 'F';
+
+-- Total Users
+SELECT COUNT(*) AS totalUsers
+FROM users;

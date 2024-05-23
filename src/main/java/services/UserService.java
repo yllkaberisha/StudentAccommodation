@@ -88,6 +88,14 @@ public class UserService {
         return users.stream().filter(user -> "F".equals(user.getGender())).count();
     }
 
+    public static long countMaleUsers() {
+        return userRepository.countUsersByGender("M");
+    }
+
+    public static long countFemaleUsers() {
+        return userRepository.countUsersByGender("F");
+    }
+
 
 
 }

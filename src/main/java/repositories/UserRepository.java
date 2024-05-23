@@ -153,4 +153,19 @@ public class UserRepository {
             return false;
         }
     }
+
+    public long countUsersByGender(String gender) {
+        String query = "SELECT COUNT(*) FROM USERS WHERE gender = ?";
+        try (Connection connection = DBConnector.getConnection();
+             PreparedStatement pst = connection.prepareStatement(query)) {
+            pst.setString(1, gender);
+            ResultSet result = pst.executeQuery();
+            if (result.next()) {
+                return result.getLong(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
