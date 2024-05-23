@@ -1,29 +1,49 @@
 package models;
 
 public class Student {
+
+    private int applicationID;
+    private int userId;
     private String firstName;
     private String lastName;
     private String gender;
+    private String status;
+    private Integer room;
     private String faculty;
     private String major;
-    private String averageGrade;
-    private String status;
-    private String year;
-    private String userId;
+    private double averageGrade;
+    private int year;
 
-    public Student(String firstName, String lastName, String gender, String faculty, String major, String averageGrade, String status, String year, String userId) {
+    public Student(int applicationID, int userId, String firstName, String lastName, String gender, String status, Integer room, String faculty, String major, double averageGrade, int year) {
+        this.applicationID = applicationID;
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
+        this.status = status;
+        this.room = room;
         this.faculty = faculty;
         this.major = major;
         this.averageGrade = averageGrade;
-        this.status = status;
         this.year = year;
+    }
+
+    public int getApplicationID() {
+        return applicationID;
+    }
+
+    public void setApplicationID(int applicationID) {
+        this.applicationID = applicationID;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    // Getters and Setters for each field
     public String getFirstName() {
         return firstName;
     }
@@ -48,6 +68,22 @@ public class Student {
         this.gender = gender;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Integer getRoom() {
+        return room;
+    }
+
+    public void setRoom(int room) {
+        this.room = room;
+    }
+
     public String getFaculty() {
         return faculty;
     }
@@ -64,36 +100,19 @@ public class Student {
         this.major = major;
     }
 
-    public String getAverageGrade() {
+    public double getAverageGrade() {
         return averageGrade;
     }
 
-    public void setAverageGrade(String averageGrade) {
+    public void setAverageGrade(double averageGrade) {
         this.averageGrade = averageGrade;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
 }

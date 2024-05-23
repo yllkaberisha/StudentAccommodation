@@ -1,29 +1,90 @@
 package repositories;
 
+import app.SessionManager;
 import models.Student;
+import models.dto.AdminApplicationDto;
 import services.DBConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class AdminApplicationRepository {
 
-    public List<Student> findAll() {
+    private static Connection connection = DBConnector.getConnection();
+
+    public boolean allocationExists(int applicationID) {
+        String query = "SELECT COUNT(*) FROM ALLOCATION WHERE applicationID = ?";
+        try (PreparedStatement pst = connection.prepareStatement(query)) {
+            pst.setInt(1, applicationID);
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle exception properly in your application
+        }
+        return false;
+    }
+
+
+    public void addAllocation(AdminApplicationDto newAdminAppDto) {
+        String insertQuery = "INSERT INTO ALLOCATION (applicationID, roomID, allocationDate, userID) VALUES (?, ?, now(), ?)";
+        String updateQuery = "UPDATE APPLICATION SET status = ? WHERE applicationID = ?";
+
+        try {
+            connection.setAutoCommit(false); // Start transaction
+
+            try (PreparedStatement insertPst = connection.prepareStatement(insertQuery);
+                 PreparedStatement updatePst = connection.prepareStatement(updateQuery)) {
+
+                // Execute insert query
+                insertPst.setInt(1, newAdminAppDto.getApplicationID());
+                insertPst.setInt(2, newAdminAppDto.getRoomID());
+                insertPst.setInt(3, SessionManager.getUser().getID());
+                insertPst.executeUpdate();
+
+                // Execute update query
+                updatePst.setString(1, newAdminAppDto.getStatus());
+                updatePst.setInt(2, newAdminAppDto.getApplicationID());
+                updatePst.executeUpdate();
+
+                connection.commit(); // Commit transaction
+
+            } catch (SQLException e) {
+                connection.rollback(); // Rollback transaction in case of error
+                e.printStackTrace(); // Handle exception properly in your application
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle exception properly in your application
+        } finally {
+            try {
+                connection.setAutoCommit(true); // Restore default auto-commit mode
+            } catch (SQLException e) {
+                e.printStackTrace(); // Handle exception properly in your application
+            }
+        }
+    }
+
+    public List<Student> getAllApplications() {
         List<Student> students = new ArrayList<>();
-        String query = "SELECT u.id, u.firstname, u.lastName, u.gender, a.faculty, a.major, a.averageGrade, a.status, a.yearOfStudies, u.role " +
+        String query = "SELECT u.id, u.firstname, u.lastName, u.gender, a.applicationID, a.faculty, a.major, a.averageGrade, a.status, a.yearOfStudies, al.roomID " +
                 "FROM USERS u " +
                 "JOIN APPLICATION a ON u.id = a.userID " +
-                "WHERE u.isActive = TRUE";
+                "left join allocation al ON al.applicationID = a.applicationID";
 
-        Connection connection = DBConnector.getConnection();
+        System.out.println(query);
         try {
             PreparedStatement pst = connection.prepareStatement(query);
             ResultSet result = pst.executeQuery();
             while (result.next()) {
-                students.add(getFromResultSet(result));
+                 students.add(getFromResultSet(result));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,101 +92,63 @@ public class AdminApplicationRepository {
         return students;
     }
 
-    private static Student getFromResultSet(ResultSet result){
-        try {
-            String firstName = result.getString("firstName");
-            String lastName = result.getString("lastName");
-            String gender = result.getString("gender");
-            String faculty = result.getString("faculty");
-            String major = result.getString("major");
-            String averageGrade = result.getString("averageGrade");
-            String status = result.getString("status");
-            String yearOfStudies = result.getString("yearOfStudies");
-            String userId = result.getString("userId");
-            return new Student(firstName, lastName, gender, faculty, major, averageGrade, status, yearOfStudies, userId);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+    private Student getFromResultSet(ResultSet result) throws SQLException {
+        System.out.println("result");
+        int applicationID = result.getInt("applicationID");
+        int userId = result.getInt("id");
+        String firstName = result.getString("firstname");
+        String lastName = result.getString("lastName");
+        String gender = result.getString("gender");
+        String status = result.getString("status");
+        Integer room = result.getInt("roomID");
+        if (result.wasNull()) {
+            room = null;
         }
+        String faculty = result.getString("faculty");
+        String major = result.getString("major");
+        double averageGrade = result.getDouble("averageGrade");
+        int year = result.getInt("yearOfStudies");
+
+        return new Student(applicationID, userId, firstName, lastName, gender, status, room, faculty, major, averageGrade, year);
     }
 
-    public void save(Student student) {
-        String query = "INSERT INTO APPLICATION (userID, applicationDate, status, faculty, yearOfStudies, major, averageGrade) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    public void updateAllocation(AdminApplicationDto newAdminAppDto) {
+        String updateAllocationQuery = "UPDATE ALLOCATION SET roomID = ?, allocationDate = now(), userID = ? WHERE applicationID = ?";
+        String updateStatusQuery = "UPDATE APPLICATION SET status = ? WHERE applicationID = ?";
 
-        Connection connection = DBConnector.getConnection();
-        try {
-            PreparedStatement pst = connection.prepareStatement(query);
-            pst.setString(1, student.getFirstName());
-            pst.setString(2, student.getLastName());
-            pst.setString(3, student.getGender());
-            pst.setString(4, student.getUserId()); // Assuming role is stored in userId
-            pst.setString(5, ""); // Assuming email is empty for now
-            pst.setString(6, ""); // Assuming passwordHash is empty for now
-            pst.setString(7, ""); // Assuming salt is empty for now
-            pst.setInt(8, Integer.parseInt(student.getUserId())); // Assuming userID is parsed from student ID
-            pst.setDate(9, new java.sql.Date(System.currentTimeMillis())); // Assuming applicationDate is current date
-            pst.setString(10, student.getStatus());
-            pst.setString(11, student.getFaculty());
-//            pst.setInt(12, Integer.parseInt(student.getYearOfStudies()));
-            pst.setString(13, student.getMajor());
-            pst.setBigDecimal(14, new java.math.BigDecimal(student.getAverageGrade()));
-            pst.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void update(Student student) {
-        Connection connection = DBConnector.getConnection();
         try {
             connection.setAutoCommit(false); // Start transaction
 
-            // Update USERS table
-            String updateUsersQuery = "UPDATE USERS SET firstName = ?, lastName = ?, gender = ? WHERE id = ?";
-            PreparedStatement pstUsers = connection.prepareStatement(updateUsersQuery);
-            pstUsers.setString(1, student.getFirstName());
-            pstUsers.setString(2, student.getLastName());
-            pstUsers.setString(3, student.getGender());
-//            pstUsers.setInt(4, Integer.parseInt(student.getId()));
-            pstUsers.executeUpdate();
+            try (PreparedStatement updateAllocationPst = connection.prepareStatement(updateAllocationQuery);
+                 PreparedStatement updateStatusPst = connection.prepareStatement(updateStatusQuery)) {
 
-            // Update APPLICATION table
-            String updateApplicationQuery = "UPDATE APPLICATION SET faculty = ?, major = ?, averageGrade = ?, status = ?, yearOfStudies = ? WHERE userID = ?";
-            PreparedStatement pstApplication = connection.prepareStatement(updateApplicationQuery);
-            pstApplication.setString(1, student.getFaculty());
-            pstApplication.setString(2, student.getMajor());
-            pstApplication.setBigDecimal(3, new java.math.BigDecimal(student.getAverageGrade()));
-            pstApplication.setString(4, student.getStatus());
-//            pstApplication.setInt(5, Integer.parseInt(student.getYearOfStudies()));
-//            pstApplication.setInt(6, Integer.parseInt(student.getId()));
-            pstApplication.executeUpdate();
+                // Execute update allocation query
+                updateAllocationPst.setInt(1, newAdminAppDto.getRoomID());
+                updateAllocationPst.setInt(2, SessionManager.getUser().getID());
+                updateAllocationPst.setInt(3, newAdminAppDto.getApplicationID());
+                updateAllocationPst.executeUpdate();
 
-            connection.commit(); // Commit transaction
-        } catch (Exception e) {
-            try {
-                connection.rollback(); // Rollback transaction on error
-            } catch (Exception rollbackException) {
-                rollbackException.printStackTrace();
+                // Execute update status query
+                updateStatusPst.setString(1, newAdminAppDto.getStatus());
+                updateStatusPst.setInt(2, newAdminAppDto.getApplicationID());
+                updateStatusPst.executeUpdate();
+
+                connection.commit(); // Commit transaction
+
+            } catch (SQLException e) {
+                connection.rollback(); // Rollback transaction in case of error
+                e.printStackTrace(); // Handle exception properly in your application
             }
-            e.printStackTrace();
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle exception properly in your application
         } finally {
             try {
-                connection.setAutoCommit(true); // Restore auto-commit mode
-            } catch (Exception autoCommitException) {
-                autoCommitException.printStackTrace();
+                connection.setAutoCommit(true); // Restore default auto-commit mode
+            } catch (SQLException e) {
+                e.printStackTrace(); // Handle exception properly in your application
             }
         }
     }
 
-    public void delete(Student student) {
-        String query = "UPDATE USERS SET isActive = FALSE WHERE id = ?";
-        Connection connection = DBConnector.getConnection();
-        try {
-            PreparedStatement pst = connection.prepareStatement(query);
-//            pst.setInt(1, Integer.parseInt(student.getId()));
-            pst.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
