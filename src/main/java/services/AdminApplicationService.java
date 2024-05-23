@@ -1,6 +1,7 @@
 package services;
 
 import models.Student;
+import models.dto.AdminApplicationDto;
 import repositories.AdminApplicationRepository;
 
 import java.util.List;
@@ -8,19 +9,17 @@ import java.util.List;
 public class AdminApplicationService {
     private final AdminApplicationRepository repository = new AdminApplicationRepository();
 
-    public List<Student> getAllStudents() {
-        return repository.findAll();
+    public void addAllocation(AdminApplicationDto newAdminAppDto) {
+         repository.addAllocation(newAdminAppDto);
     }
 
-    public void addStudent(Student student) {
-        repository.save(student);
+    public List<Student> getAllApplications() {
+        return repository.getAllApplications();
     }
-
-    public void updateStudent(Student student) {
-        repository.update(student);
+    public boolean allocationExists(int applicationID) {
+        return repository.allocationExists(applicationID);
     }
-
-    public void deleteStudent(Student student) {
-        repository.delete(student);
+    public void updateAllocation(AdminApplicationDto newAdminAppDto) {
+        repository.updateAllocation(newAdminAppDto);
     }
 }
