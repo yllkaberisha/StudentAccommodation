@@ -35,14 +35,14 @@
       </Pane>
       <TableView fx:id="table" layoutX="22.0" layoutY="285.0" prefHeight="226.0" prefWidth="278.0">
          <columns>
-            <TableColumn fx:id="UserIdColmn" prefWidth="85.60003471374512" text="%lblRoomsID" />
-            <TableColumn fx:id="RoomColmn" prefWidth="72.79998779296875" text="%lblType" />
-            <TableColumn fx:id="ApplicationIDColmn" prefWidth="116.7999267578125" text="%lblRoomsCapacity" />
+            <TableColumn fx:id="RoomsIDColmn" prefWidth="85.60003471374512" text="%lblRoomsID" />
+            <TableColumn fx:id="TypeColmn" prefWidth="72.79998779296875" text="%lblType" />
+            <TableColumn fx:id="RoomsCapacityColmn" prefWidth="116.7999267578125" text="%lblRoomsCapacity" />
 
          </columns>
       </TableView>
       <Button fx:id="btnAdd" layoutX="373.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnAdd" textFill="WHITE" />
-      <Button fx:id="btnUpdate" layoutX="373.0" layoutY="177.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnUpdate" textFill="WHITE" />
-      <Button fx:id="btnDelete" layoutX="373.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnDelet" textFill="WHITE" />
+      <Button fx:id="btnUpdate" layoutX="373.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnUpdate" textFill="WHITE" />
+      <Button fx:id="btnDelete" layoutX="373.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnDelete" textFill="WHITE" />
    </children>
 </AnchorPane>

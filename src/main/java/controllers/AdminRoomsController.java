@@ -10,45 +10,46 @@ import javafx.scene.control.TextField;
 
 public class AdminRoomsController {
 
-        @FXML
-        private TableColumn<?, ?> ApplicationIDColmn;
 
-        @FXML
-        private TableColumn<?, ?> RoomColmn;
+                @FXML
+                private TableColumn<?, ?> RoomsCapacityColmn;
 
-        @FXML
-        private TableColumn<?, ?> UserIdColmn;
+                @FXML
+                private TableColumn<?, ?> RoomsIDColmn;
 
-        @FXML
-        private Button btnAdd;
+                @FXML
+                private TableColumn<?, ?> TypeColmn;
 
-        @FXML
-        private Button btnUpdate;
+                @FXML
+                private Button btnAdd;
 
-        @FXML
-        private Button btnDelete;
+                @FXML
+                private Button btnDelete;
 
-        @FXML
-        private ChoiceBox<?> statusBox;
+                @FXML
+                private Button btnUpdate;
 
-        @FXML
-        private TableView<?> table;
+                @FXML
+                private ChoiceBox<?> statusBox;
 
-        @FXML
-        private TextField txtRoomID;
+                @FXML
+                private TableView<?> table;
 
-        @FXML
-        void handleAdd(ActionEvent event) {
+                @FXML
+                private TextField txtRoomID;
 
-        }
+                @FXML
+                void handleAdd(ActionEvent event) {
 
-        @FXML
-        void handleDelete(ActionEvent event) {
+                }
 
-        }
+                @FXML
+                void handleDelete(ActionEvent event) {
 
-        @FXML
-        void handleUpdate(ActionEvent event) {
+                }
 
-        }
+                @FXML
+                void handleUpdate(ActionEvent event) {
+
+                }
 }
