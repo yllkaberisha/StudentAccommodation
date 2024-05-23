@@ -1,7 +1,6 @@
 package repositories;
 
 import models.AdminUser;
-import models.User;
 import models.filter.AdminUserFilter;
 import services.DBConnector;
 
@@ -11,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminRepository {
+public class AdminUserRepository {
     public List<AdminUser> getAllUsers() {
         List<AdminUser> users = new ArrayList<>();
         String query = "SELECT u.id, u.firstname, u.lastName, u.gender, u.role, u.email, r.roomID AS room " +
@@ -89,12 +88,11 @@ public class AdminRepository {
             pstUsers.executeUpdate();
 
             // Update ALLOCATION table
-            String updateAllocationQuery = "UPDATE ALLOCATION SET roomID = ? WHERE userID = ?";
-            PreparedStatement pstAllocation = connection.prepareStatement(updateAllocationQuery);
-            pstAllocation.setString(1, selectedUser.getRoom());
-            pstAllocation.setString(2, selectedUser.getId());
-            pstAllocation.executeUpdate();
-
+                String updateAllocationQuery = "UPDATE ALLOCATION SET roomID = ? WHERE userID = ?";
+                PreparedStatement pstAllocation = connection.prepareStatement(updateAllocationQuery);
+                pstAllocation.setString(1, selectedUser.getRoom());
+                pstAllocation.setString(2, selectedUser.getId());
+                pstAllocation.executeUpdate();
             connection.commit(); // Commit transaction
         } catch (Exception e) {
             try {

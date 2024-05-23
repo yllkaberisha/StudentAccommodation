@@ -38,15 +38,5 @@
          </children>
       </VBox>
    </left>
-   <center>
-      <AnchorPane fx:id="ap" prefHeight="500.0" prefWidth="518.0" BorderPane.alignment="CENTER">
-         <children>
-            <Text layoutX="153.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtHome" wrappingWidth="194.44781494140625">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-   </center>
+
 </BorderPane>

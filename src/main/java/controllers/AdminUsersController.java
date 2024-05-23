@@ -8,10 +8,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import models.AdminUser;
 import models.filter.AdminUserFilter;
-import services.AdminService;
+import services.AdminUserService;
 import utils.AlertUtil;
 
 import java.util.List;
@@ -63,7 +62,7 @@ public class AdminUsersController {
     @FXML
     private TableColumn<AdminUser, String> RoomCol;
 
-    private AdminService service = new AdminService();
+    private AdminUserService service = new AdminUserService();
 
     @FXML
     public void initialize() {

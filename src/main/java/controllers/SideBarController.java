@@ -42,6 +42,7 @@ public class SideBarController {
     @FXML
     public void initialize() {
         // Any initialization logic can go here
+        loadPage(Navigator.DASHBOARD_PAGE);
     }
 
     // Event handler methods
