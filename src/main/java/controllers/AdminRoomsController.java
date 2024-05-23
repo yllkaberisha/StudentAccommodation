@@ -26,6 +26,9 @@ public class AdminRoomsController {
         private Button btnUpdate;
 
         @FXML
+        private Button btnDelete;
+
+        @FXML
         private ChoiceBox<?> statusBox;
 
         @FXML
@@ -36,6 +39,11 @@ public class AdminRoomsController {
 
         @FXML
         void handleAdd(ActionEvent event) {
+
+        }
+
+        @FXML
+        void handleDelete(ActionEvent event) {
 
         }
 
