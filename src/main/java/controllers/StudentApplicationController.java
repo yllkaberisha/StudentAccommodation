@@ -44,7 +44,7 @@ public class StudentApplicationController {
         ApplicationDto applicationData = new ApplicationDto(id, faculty, yearsOfStudies, major, averageGrade);
 
         // Thirr funksionin për të ruajtur aplikacionin në bazën e të dhënave
-        boolean saved = UserRepository.saveInformation(applicationData);
+        boolean saved = UserService.saveInformation(applicationData);
 
         if (saved) {
             System.out.println("Application saved successfully!");
@@ -100,7 +100,7 @@ public class StudentApplicationController {
         if (applicationId != -1) {
             ApplicationDto applicationData = new ApplicationDto(id,faculty, yearsOfStudies, major, averageGrade);
 
-            boolean updated = UserRepository.updateInformation(applicationData);
+            boolean updated = UserService.updateInformation(applicationData);
 
             if (updated) {
                 System.out.println("Application updated successfully!");

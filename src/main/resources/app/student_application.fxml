@@ -10,7 +10,7 @@
         <AnchorPane prefHeight="300.0" prefWidth="350.0" style="-fx-background-color: #06768d;" BorderPane.alignment="CENTER">
             <children>
                 <FontAwesomeIcon fill="WHITE" glyphName="UNIVERSITY" layoutX="135.0" layoutY="220.0" size="70" />
-                <Text fill="WHITE" layoutX="92.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Accommodation">
+                <Text fill="WHITE" layoutX="92.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtStudentAccomodation">
                     <font>
                         <Font size="15.0" />
                     </font>
@@ -30,10 +30,10 @@
                 <TextField id="Major" fx:id="txtMajor" layoutX="137.0" layoutY="206.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
                 <Label layoutX="25.0" layoutY="258.0" text="Average grade" textFill="#23a7ea" />
                 <TextField id="AverageGrade" fx:id="txtAverageGrade" layoutX="137.0" layoutY="253.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
-                <Button layoutX="22.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleSave" style="-fx-background-color: #3da1cc;" text="Save" textFill="WHITE" />
-                <Button layoutX="111.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #3da1cc;" text="Cancel" textFill="WHITE" />
-                <Button layoutX="212.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleUpdate" style="-fx-background-color: #3da1cc;" text="Update" textFill="WHITE" />
-                <Button layoutX="258.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleLogOut" style="-fx-background-color: #3da1cc;" text="Log Out" textFill="WHITE" />
+                <Button layoutX="22.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleSave" style="-fx-background-color: #3da1cc;" text="%btnApply" textFill="WHITE" />
+                <Button layoutX="111.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #3da1cc;" text="%btnCancel" textFill="WHITE" />
+                <Button layoutX="212.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleUpdate" style="-fx-background-color: #3da1cc;" text="%btnUpdate" textFill="WHITE" />
+                <Button layoutX="258.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleLogOut" style="-fx-background-color: #3da1cc;" text="%btnLogOut" textFill="WHITE" />
 
             </children>
         </AnchorPane>

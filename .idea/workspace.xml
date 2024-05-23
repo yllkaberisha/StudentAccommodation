@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="Admin rooms">
+    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="Update admin application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/StudentApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/StudentApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/dto/DashboardDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/app/admin_rooms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/admin_rooms.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/admin_users.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/admin_users.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/signup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/student_application.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/student_application.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/content_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translations/content_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/content_sq.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translations/content_sq.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +32,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -185,20 +187,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716383511737</updated>
     </task>
-    <task id="LOCAL-00013" summary="Admin rooms">
-      <option name="closed" value="true" />
-      <created>1716492637972</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1716492637972</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
     <option featureType="dependencySupport" implementationName="java:org.openjfx:javafx-base" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="login design" />
@@ -209,7 +214,6 @@
     <MESSAGE value="transates" />
     <MESSAGE value="admin_applications.fxml" />
     <MESSAGE value="Update admin application" />
-    <MESSAGE value="Admin rooms" />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin rooms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update admin application" />
   </component>
 </project>

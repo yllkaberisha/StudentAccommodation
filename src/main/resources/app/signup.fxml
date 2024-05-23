@@ -37,7 +37,7 @@
             <PasswordField fx:id="pwdConfirmPassword" layoutX="176.0" layoutY="429.0" promptText="%lblConfirmPassword" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
 
             <FontAwesomeIcon fill="#06768d" glyphName="USERS" layoutX="167.0" layoutY="117.0" size="35" />
-            <Text fill="#06768d" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblUserLogin" textAlignment="CENTER" wrappingWidth="349.17578887939453">
+            <Text fill="#06768d" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblUserRegister" textAlignment="CENTER" wrappingWidth="349.17578887939453">
                <font>
                   <Font size="22.0" />
                </font>

@@ -97,5 +97,11 @@ public class UserService {
     }
 
 
+    public static boolean updateInformation(ApplicationDto applicationData) {
+        return userRepository.updateInformation(applicationData);
+    }
 
+    public static boolean saveInformation(ApplicationDto applicationData) {
+        return userRepository.saveInformation(applicationData);
+    }
 }

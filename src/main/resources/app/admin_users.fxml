@@ -6,10 +6,12 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminUsersController">
     <children>
-        <Text fill="#06768d" layoutX="3.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAdminUsers" textAlignment="CENTER" wrappingWidth="527.1757965087891">
-         <font>
-            <Font size="22.0" />
-         </font></Text>
+        <Label layoutX="151.0" layoutY="14.0" prefHeight="32.0" prefWidth="382.0" text="%txtAdminUsers" textFill="#06768d">
+            <font>
+                <Font name="Berlin Sans FB" size="29.0" />
+            </font>
+        </Label>
+     
 <!--        <Text layoutX="208.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%txtAdminUsers" wrappingWidth="161.859130859375" />-->
 
         <TextField fx:id="txtID" layoutX="33.0" layoutY="64.0" prefHeight="27.0" prefWidth="97.0" promptText="%lblID" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
