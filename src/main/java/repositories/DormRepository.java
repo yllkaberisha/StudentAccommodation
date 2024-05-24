@@ -5,32 +5,20 @@ import services.DBConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DormRepository {
 
-    public long countMaleDorms() {
-        String query = "SELECT COUNT(*) FROM Dorms WHERE type = 'M'";
+    public long getTotalCapacityForRoomType(String roomType) {
+        String query = "SELECT SUM(capacity) FROM ROOM WHERE roomType = ?";
         try (Connection connection = DBConnector.getConnection()) {
             PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, roomType);
             ResultSet result = pst.executeQuery();
             if (result.next()) {
                 return result.getLong(1);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
-
-    public long countFemaleDorms() {
-        String query = "SELECT COUNT(*) FROM Dorms WHERE type = 'F'";
-        try (Connection connection = DBConnector.getConnection()) {
-            PreparedStatement pst = connection.prepareStatement(query);
-            ResultSet result = pst.executeQuery();
-            if (result.next()) {
-                return result.getLong(1);
-            }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return 0;

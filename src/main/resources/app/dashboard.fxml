@@ -40,12 +40,12 @@
                             </padding>
                         </Label>
                         <PieChart fx:id="dormPieChart" prefHeight="228.0" prefWidth="259.0" />
-                        <Label fx:id="lblMaleDorms" text="%lblMaleDorms" />
-                        <Label fx:id="maleDormCountLabel" text="3" />
-                        <Label fx:id="lblFemaleDorms" text="%lblFemaleDorms" />
-                        <Label fx:id="femaleDormCountLabel" text="5" />
-                        <Label fx:id="lblTotalDorms" text="%lblTotalDorms" />
-                        <Label fx:id="totalDormCountLabel" text="8" />
+                        <Label fx:id="lblMaleCapacity" text="%lblMaleRooms" />
+                        <Label fx:id="totalMaleCapacity" text="0" />
+                        <Label fx:id="lblFemaleCapacity" text="%lblFemaleRooms" />
+                        <Label fx:id="totalFemaleCapacity" text="0" />
+                        <Label fx:id="lblTotalRooms" text="%lblTotalRooms" />
+                        <Label fx:id="totalRoomsCountLabel" text="0" />
                     </children>
                 </VBox>
             </children>
