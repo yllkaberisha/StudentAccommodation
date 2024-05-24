@@ -9,18 +9,20 @@ import java.sql.SQLException;
 
 public class DormRepository {
 
-    public long getTotalCapacityForRoomType(String roomType) {
-        String query = "SELECT SUM(capacity) FROM ROOM WHERE roomType = ?";
-        try (Connection connection = DBConnector.getConnection()) {
-            PreparedStatement pst = connection.prepareStatement(query);
-            pst.setString(1, roomType);
-            ResultSet result = pst.executeQuery();
-            if (result.next()) {
-                return result.getLong(1);
+        public long getTotalCapacityForRoomType(String roomType) {
+            String query = "SELECT SUM(capacity) FROM ROOM WHERE roomType = ?";
+            Connection connection = DBConnector.getConnection();
+            try{
+                PreparedStatement pst = connection.prepareStatement(query);
+                pst.setString(1, roomType);
+                ResultSet result = pst.executeQuery();
+                if(result.next()){
+                    return result.getLong(1);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            return 0;
         }
-        return 0;
-    }
+
 }

@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+
     @FXML
     private Label lblGenderDistribution;
     @FXML
@@ -34,6 +35,10 @@ public class DashboardController implements Initializable {
     private PieChart dormPieChart; // Add this line for the dorm pie chart
     @FXML
     private Label lblTotalRooms;
+    @FXML
+    private Label totalFemaleCapacity;
+    @FXML
+    private Label totalMaleCapacity;
     @FXML
     private Label totalRoomsCountLabel;
 
@@ -69,13 +74,18 @@ public class DashboardController implements Initializable {
     }
 
     private void loadDormStatistics() {
-        long totalMaleCapacity = dormService.getTotalCapacityForMaleRooms();
-        long totalFemaleCapacity = dormService.getTotalCapacityForFemaleRooms();
+        long totalMaleCapacityRoom = dormService.getTotalCapacityForMaleRooms();
+        long totalFemaleCapacityRoom = dormService.getTotalCapacityForFemaleRooms();
+
+        System.out.println(totalMaleCapacity + " " + totalFemaleCapacity);
         long totalCapacity = dormService.getTotalCapacity();
 
-        totalRoomsCountLabel.setText(String.valueOf(totalCapacity));
+       totalRoomsCountLabel.setText(String.valueOf(totalCapacity));
+       totalFemaleCapacity.setText(String.valueOf(totalFemaleCapacityRoom));
+       totalMaleCapacity.setText(String.valueOf(totalMaleCapacityRoom));
 
-        updateDormPieChart(totalMaleCapacity, totalFemaleCapacity);
+
+      updateDormPieChart(totalMaleCapacityRoom, totalFemaleCapacityRoom);
     }
 
     private void updateGenderPieChart(long maleCount, long femaleCount) {
