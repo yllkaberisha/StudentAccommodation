@@ -77,7 +77,7 @@ public class DashboardController implements Initializable {
         long totalMaleCapacityRoom = dormService.getTotalCapacityForMaleRooms();
         long totalFemaleCapacityRoom = dormService.getTotalCapacityForFemaleRooms();
 
-        System.out.println(totalMaleCapacity + " " + totalFemaleCapacity);
+//        System.out.println(totalMaleCapacity + " " + totalFemaleCapacity);
         long totalCapacity = dormService.getTotalCapacity();
 
        totalRoomsCountLabel.setText(String.valueOf(totalCapacity));
