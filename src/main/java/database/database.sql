@@ -83,14 +83,3 @@ WHERE gender = 'F';
 -- Total Users
 SELECT COUNT(*) AS totalUsers
 FROM users;
-
-SELECT SUM(capacity) AS totalMaleCapacity
-FROM ROOM
-WHERE roomType = 'M';
-
-SELECT SUM(capacity) AS totalFemaleCapacity
-FROM ROOM
-WHERE roomType = 'F';
-
-SELECT SUM(capacity) AS totalCapacity
-FROM ROOM;

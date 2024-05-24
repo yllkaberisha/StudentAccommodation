@@ -5,7 +5,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import models.User;
-import services.DormService;
 import services.UserService;
 
 import java.net.URL;
@@ -31,15 +30,23 @@ public class DashboardController implements Initializable {
     @FXML
     private PieChart genderPieChart;
     @FXML
-    private PieChart dormPieChart; // Add this line for the dorm pie chart
+    private PieChart dormPieChart;
     @FXML
-    private Label lblTotalRooms;
+    private Label lblDormDistribution;
     @FXML
-    private Label totalRoomsCountLabel;
-
-
-    private DormService dormService = new DormService();
-    private UserService userService = new UserService();
+    private Label lblMaleDorms;
+    @FXML
+    private Label lblFemaleDorms;
+    @FXML
+    private Label lblTotalDorms;
+    @FXML
+    private Label totalDormLabel;
+    @FXML
+    private Label maleDormCountLabel;
+    @FXML
+    private Label femaleDormCountLabel;
+    @FXML
+    private Label totalDormCountLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,7 +55,10 @@ public class DashboardController implements Initializable {
         lblMaleUsers.setText(resourceBundle.getString("lblMaleUsers"));
         lblFemaleUsers.setText(resourceBundle.getString("lblFemaleUsers"));
         lblTotalUsers.setText(resourceBundle.getString("lblTotalUsers"));
-        lblTotalRooms.setText(resourceBundle.getString("lblTotalRooms"));
+        lblDormDistribution.setText(resourceBundle.getString("lblDormDistribution"));
+        lblMaleDorms.setText(resourceBundle.getString("lblMaleDorms"));
+        lblFemaleDorms.setText(resourceBundle.getString("lblFemaleDorms"));
+        lblTotalDorms.setText(resourceBundle.getString("lblTotalDorms"));
 
         // Load statistics
         loadUserStatistics();
@@ -69,13 +79,15 @@ public class DashboardController implements Initializable {
     }
 
     private void loadDormStatistics() {
-        long totalMaleCapacity = dormService.getTotalCapacityForMaleRooms();
-        long totalFemaleCapacity = dormService.getTotalCapacityForFemaleRooms();
-        long totalCapacity = dormService.getTotalCapacity();
+        int maleDormCount = 3; // Example value, replace with actual logic if necessary
+        int femaleDormCount = 5; // Example value, replace with actual logic if necessary
+        int totalDormCount = maleDormCount + femaleDormCount;
 
-        totalRoomsCountLabel.setText(String.valueOf(totalCapacity));
+        maleDormCountLabel.setText(String.valueOf(maleDormCount));
+        femaleDormCountLabel.setText(String.valueOf(femaleDormCount));
+        totalDormCountLabel.setText(String.valueOf(totalDormCount));
 
-        updateDormPieChart(totalMaleCapacity, totalFemaleCapacity);
+        updateDormPieChart(maleDormCount, femaleDormCount);
     }
 
     private void updateGenderPieChart(long maleCount, long femaleCount) {
@@ -85,9 +97,9 @@ public class DashboardController implements Initializable {
         genderPieChart.getData().addAll(maleData, femaleData);
     }
 
-    private void updateDormPieChart(long maleCapacity, long femaleCapacity) {
-        PieChart.Data maleDormData = new PieChart.Data("Male Dorms", maleCapacity);
-        PieChart.Data femaleDormData = new PieChart.Data("Female Dorms", femaleCapacity);
+    private void updateDormPieChart(int maleDormCount, int femaleDormCount) {
+        PieChart.Data maleDormData = new PieChart.Data("Male", maleDormCount);
+        PieChart.Data femaleDormData = new PieChart.Data("Female", femaleDormCount);
         dormPieChart.getData().clear();
         dormPieChart.getData().addAll(maleDormData, femaleDormData);
     }
