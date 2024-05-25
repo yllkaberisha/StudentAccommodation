@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="Update admin application">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/dto/AdminRoomDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/AdminRoomRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/AdminRoomService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/AllocationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="4e3d44c0-d7d7-4008-bd58-1051f68bf5e9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AdminRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/AdminRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/AdminRoomsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/AdminUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app/admin_rooms.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/admin_rooms.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/translations/content_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translations/content_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/content_sq.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translations/content_sq.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +25,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;adnaslani&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b857db57-b1c0-4be2-b808-c9327b4ec43e" />
+        <option name="url" value="https://github.com/yllkaberisha/StudentAccommodation.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -63,7 +69,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.34367815",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -202,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716383511737</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update rooms">
+      <option name="closed" value="true" />
+      <created>1716616283422</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716616283422</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -229,7 +243,8 @@
     <MESSAGE value="transates" />
     <MESSAGE value="admin_applications.fxml" />
     <MESSAGE value="Update admin application" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update admin application" />
+    <MESSAGE value="Update rooms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update rooms" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
