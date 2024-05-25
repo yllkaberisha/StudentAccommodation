@@ -4,21 +4,17 @@ import repositories.DormRepository;
 
 public class DormService {
 
-    private DormRepository dormRepository;
+    private DormRepository dormRepository = new DormRepository();
 
-    public DormService() {
-        dormRepository = new DormRepository();
+    public long getMaleDormCount() {
+        return dormRepository.countMaleDorms();
     }
 
-    public long getTotalCapacityForMaleRooms() {
-        return dormRepository.getTotalCapacityForRoomType("M");
+    public long getFemaleDormCount() {
+        return dormRepository.countFemaleDorms();
     }
 
-    public long getTotalCapacityForFemaleRooms() {
-        return dormRepository.getTotalCapacityForRoomType("F");
-    }
-
-    public long getTotalCapacity() {
-        return getTotalCapacityForMaleRooms() + getTotalCapacityForFemaleRooms();
+    public long getTotalDormCount() {
+        return getMaleDormCount() + getFemaleDormCount();
     }
 }
