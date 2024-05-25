@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
     @FXML
+    private CheckBox chkAgree;
+    @FXML
     private TextField txtFirstName;
     @FXML
     private TextField txtLastName;
@@ -35,12 +37,24 @@ public class SignUpController implements Initializable {
 
     @FXML
     private void handleSignUp(ActionEvent ae) throws IOException {
+        // Validate fields
+        if (isAnyFieldEmpty()) {
+            AlertUtil.showErrorAlert("Form Error", "Empty Fields", "Please fill in all fields.");
+            return;
+        }
+
         // Get the gender text ("male" or "female") and map it to "M" or "F"
         String gender = ((RadioButton) tgGender.getSelectedToggle()).getText();
         String genderCode = gender.equalsIgnoreCase("male") ? "M" : "F";
 
         // Get the selected role
         String role = roleBox.getValue();
+
+        // Check if the terms and conditions are agreed
+        if (!chkAgree.isSelected()) {
+            AlertUtil.showErrorAlert("Terms and Conditions", "Agreement Required", "You must agree with the terms and conditions.");
+            return;
+        }
 
         UserDto userSignUpData = new UserDto(
                 this.txtFirstName.getText(),
@@ -69,7 +83,6 @@ public class SignUpController implements Initializable {
                     "There was an error creating the user account. Please try again."
             );
         }
-
     }
 
     @FXML
@@ -84,9 +97,20 @@ public class SignUpController implements Initializable {
         this.rButton1.setToggleGroup(tgGender);
         this.rButton2.setToggleGroup(tgGender);
     }
-@FXML
+
+    @FXML
     public void handelChangeLanguage(ActionEvent ae) {
         Navigator.changeLanguage();
-        Navigator.navigate(ae,Navigator.CREATE_ACCOUNT_PAGE);
+        Navigator.navigate(ae, Navigator.CREATE_ACCOUNT_PAGE);
+    }
+
+    private boolean isAnyFieldEmpty() {
+        return txtFirstName.getText().isEmpty() ||
+                txtLastName.getText().isEmpty() ||
+                txtEmail.getText().isEmpty() ||
+                pwdPassword.getText().isEmpty() ||
+                pwdConfirmPassword.getText().isEmpty() ||
+                tgGender.getSelectedToggle() == null ||
+                roleBox.getValue() == null;
     }
 }

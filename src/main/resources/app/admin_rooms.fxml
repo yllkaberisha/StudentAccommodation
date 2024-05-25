@@ -4,27 +4,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminRoomController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminRoomController">
    <children>
-      <Label layoutX="116.0" layoutY="54.0" text="%lblStudentRegistration" textFill="#06768d">
+      <Label layoutX="116.0" layoutY="54.0" text="%lblRoomManagement" textFill="#06768d">
          <font>
             <Font name="Berlin Sans FB" size="29.0" />
          </font>
       </Label>
-      <Pane layoutX="22.0" layoutY="124.0" prefHeight="114.0" prefWidth="327.0" style="-fx-background-color: #06768d;">
+      <Pane layoutX="22.0" layoutY="124.0" prefHeight="140.0" prefWidth="327.0" style="-fx-background-color: #06768d;">
          <children>
+            <ChoiceBox fx:id="typeBox" layoutX="133.0" layoutY="20.0" prefWidth="150.0" />
+
             <Label layoutX="32.0" layoutY="24.0" text="%lblType" textFill="WHITE">
                <font>
                   <Font size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="txtRoomID" layoutX="134.0" layoutY="61.0" />
+            <TextField fx:id="txtCapacity" layoutX="134.0" layoutY="61.0" />
             <Label layoutX="4.0" layoutY="56.0" prefHeight="25.0" prefWidth="105.0" text="%lblRoomsCapacity" textFill="WHITE">
                <font>
                   <Font size="12.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="statusBox" layoutX="133.0" layoutY="20.0" prefWidth="150.0" />
+            <TextField fx:id="txtFloor" layoutX="133.0" layoutY="94.0" />
+            <Label layoutX="14.0" layoutY="94.0" prefHeight="25.0" prefWidth="105.0" text="%lblRoomFloor" textFill="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <TableView fx:id="table" layoutX="22.0" layoutY="285.0" prefHeight="226.0" prefWidth="454.0">
@@ -32,8 +39,7 @@
             <TableColumn fx:id="RoomsIDColmn" prefWidth="113.5" text="%lblRoomsID" />
             <TableColumn fx:id="TypeColmn" prefWidth="113.5" text="%lblType" />
             <TableColumn fx:id="RoomsCapacityColmn" prefWidth="113.5" text="%lblRoomsCapacity" />
-            <TableColumn fx:id="FloorColmn" prefWidth="113.5" text="%lblFloor" />
-
+            <TableColumn fx:id="FloorColmn" prefWidth="113.5" text="%lblRoomFloor" />
          </columns>
       </TableView>
       <Button fx:id="btnAdd" layoutX="405.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnAdd" textFill="WHITE" />

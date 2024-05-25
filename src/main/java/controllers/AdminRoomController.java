@@ -1,241 +1,130 @@
 package controllers;
 
-import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.util.Callback;
-import models.AdminUser;
+import models.dto.AdminRoomDto;
 import services.AdminRoomService;
-import models.dto.AdminRoomDto; // Import AdminRoomDto
-
+import utils.AlertUtil;
 
 import java.util.List;
 
 public class AdminRoomController {
 
-    @FXML
-    private AnchorPane anchorPane;
 
     @FXML
-    private Label lblStudentRegistration;
+    private TextField txtCapacity;
 
     @FXML
-    private TextField txtRoomID;
+    private TextField txtFloor;
 
     @FXML
-    private ChoiceBox<String> statusBox;
+    private ChoiceBox<String> typeBox;
 
     @FXML
-    private TableView<AdminUser> table;
+    private TableView<AdminRoomDto> table;
 
     @FXML
-    private TableColumn<AdminUser, String> RoomsIDColmn;
+    private TableColumn<AdminRoomDto, String> RoomsIDColmn;
 
     @FXML
-    private TableColumn<AdminUser, String> TypeColmn;
+    private TableColumn<AdminRoomDto, String> TypeColmn;
 
     @FXML
-    private TableColumn<AdminUser, String> RoomsCapacityColmn;
+    private TableColumn<AdminRoomDto, String> RoomsCapacityColmn;
 
     @FXML
-    private TableColumn<AdminUser, String>FloorColmn;
+    private TableColumn<AdminRoomDto, String> FloorColmn;
 
-    @FXML
-    private Button btnAdd;
-
-    @FXML
-    private Button btnUpdate;
-
-    @FXML
-    private Button btnDelete;
-
-    private AdminRoomService roomService;
+    private AdminRoomService service = new AdminRoomService();
 
     @FXML
     public void initialize() {
-        roomService = new AdminRoomService();
-        loadRoomData();
+        // Set up the columns in the table
+        RoomsIDColmn.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+        TypeColmn.setCellValueFactory(new PropertyValueFactory<>("roomType"));
+        RoomsCapacityColmn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+        FloorColmn.setCellValueFactory(new PropertyValueFactory<>("floor"));
 
-//        // Initialize table columns
-//        RoomsIDColmn.setCellValueFactory(new PropertyValueFactory<>("roomID"));
-//        TypeColmn.setCellValueFactory(new PropertyValueFactory<>("roomType"));
-//        RoomsCapacityColmn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
-//        FloorColmn.setCellValueFactory(new PropertyValueFactory<>("floor"));
+        // Load data into the table
+        List<AdminRoomDto> roomList = service.getAllRooms();
+        loadTableData(roomList);
 
+        // Add listener for row selection
+        table.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> populateTextFields(newValue)
+        );
 
-        // Add initial data to the statusBox
-//        List<String> roomTypes = roomService.getDistinctRoomTypes();
-//        if (roomTypes != null && !roomTypes.isEmpty()) {
-//            statusBox.getItems().addAll(roomTypes);
-//            statusBox.getSelectionModel().selectFirst(); // Select the first item by default
-//        }
-
-        statusBox.getItems().addAll("1", "2");
-
-
-//        // Add listener for row selection
-//        table.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-//            if (newValue != null) {
-//                txtRoomID.setText(newValue.getRoomID());
-//                statusBox.setValue(newValue.getRoomType());
-//                // Populate other fields as needed
-//            }
-//        });
+        // Populate statusBox with options
+        typeBox.setItems(FXCollections.observableArrayList("M", "F"));
     }
-//
-//    @FXML
-//    public void handleAdd() {
-//        String roomID = txtRoomID.getText();
-//        String roomType = roomTypeBox.getValue();
-//        int capacity = 0; // Adjust according to your data source
-//        int floor = 0; // Adjust according to your data source
-//        if (roomID != null && !roomID.isEmpty() && roomType != null) {
-//            roomService.addRoom(roomID, roomType, capacity, floor);
-//            loadRoomData();
-//        } else {
-//            showError("Please fill in all fields.");
-//        }
-//    }
 
-//    @FXML
-//    public void handleUpdate() {
-//        AdminUser selectedRoom = table.getSelectionModel().getSelectedItem();
-//        if (selectedRoom != null) {
-//            String roomID = selectedRoom.getRoomID();
-//            String roomType = roomTypeBox.getValue();
-//            int capacity = 0; // Adjust according to your data source
-//            int floor = 0; // Adjust according to your data source
-//            if (roomType != null) {
-//                roomService.updateRoom(roomID, roomType, capacity, floor);
-//                loadRoomData();
-//            } else {
-//                showError("Please select a room type.");
-//            }
-//        } else {
-//            showError("Please select a room to update.");
-//        }
-//    }
-//
-//    @FXML
-//    public void handleDelete() {
-//        AdminUser selectedRoom = table.getSelectionModel().getSelectedItem();
-//        if (selectedRoom != null) {
-//            String roomID = selectedRoom.getRoomID();
-//            roomService.deleteRoom(roomID);
-//            loadRoomData();
-//        } else {
-//            showError("Please select a room to delete.");
-//        }
-//    }
+    private void loadTableData(List<AdminRoomDto> roomList) {
+        // Fetch data from the service
+        ObservableList<AdminRoomDto> rooms = FXCollections.observableArrayList(roomList);
+        table.setItems(rooms);
+    }
 
-//
-//    @FXML
-//    public void handleAdd() {
-//        String roomID = txtRoomID.getText();
-//        String roomType = statusBox.getValue();
-//        String capacity = ""; // Adjust according to your data source
-//        String floor = ""; // Adjust according to your data source
-//        if (roomID != null && !roomID.isEmpty() && roomType != null) {
-//            roomService.addRoom(roomID, roomType, capacity, floor);
-//            loadRoomData();
-//        } else {
-//            showError("Please fill in all fields.");
-//        }
-//    }
+    private void populateTextFields(AdminRoomDto room) {
+        if (room != null) {
+            txtCapacity.setText(room.getCapacity());
+            txtFloor.setText(room.getFloor());
+            typeBox.setValue(room.getRoomType());
+        }
+    }
 
     @FXML
-    public void handleAdd() {
-        String roomID = txtRoomID.getText();
-        String roomType = statusBox.getValue();
-        String capacity = ""; // Adjust according to your data source
-        String floor = ""; // Adjust according to your data source
-        if (roomID != null && !roomID.isEmpty() && roomType != null) {
-            AdminRoomDto newRoomDto = new AdminRoomDto(roomID, roomType, capacity, floor);
-            roomService.addRoom(newRoomDto);
-            loadRoomData();
+    private void handleAdd(ActionEvent event) {
+        String type = typeBox.getValue();
+        String capacity = txtCapacity.getText();
+        String floor = txtFloor.getText();
+
+        AdminRoomDto newRoom = new AdminRoomDto(null, type, capacity, floor);
+        service.addRoom(newRoom);
+        loadTableData(service.getAllRooms());
+        AlertUtil.showSuccessAlert("Success", "Room Added", "The room has been added successfully.");
+        clearFields();
+    }
+
+    private void clearFields() {
+        txtCapacity.clear();
+        txtFloor.clear();
+        typeBox.setValue(null);
+    }
+
+    @FXML
+    private void handleUpdate(ActionEvent event) {
+        AdminRoomDto selectedRoom = table.getSelectionModel().getSelectedItem();
+        if (selectedRoom != null) {
+//            selectedRoom.setRoomID(txtRoomID.getText());
+            selectedRoom.setRoomType(typeBox.getValue());
+            selectedRoom.setCapacity(txtCapacity.getText());
+            selectedRoom.setFloor(txtFloor.getText());
+
+            service.updateRoom(selectedRoom);
+            table.refresh();
+            AlertUtil.showSuccessAlert("Success", "Room Updated", "The room has been updated successfully.");
+            clearFields();
         } else {
-            showError("Please fill in all fields.");
+            AlertUtil.showWarningAlert("No Selection", "No Room Selected", "Please select a room in the table.");
         }
     }
 
-
-
-
-
-//    @FXML
-//    public void handleUpdate() {
-//        AdminUser selectedRoom = table.getSelectionModel().getSelectedItem();
-//        if (selectedRoom != null) {
-//            String roomID = selectedRoom.getRoomID();
-//            String roomType = statusBox.getValue();
-//            String capacity = ""; // Adjust according to your data source
-//            String floor = ""; // Adjust according to your data source
-//            if (roomType != null) {
-//                roomService.updateRoom(roomID, roomType, capacity, floor);
-//                loadRoomData();
-//            } else {
-//                showError("Please select a room type.");
-//            }
-//        } else {
-//            showError("Please select a room to update.");
-//        }
-//    }
-@FXML
-public void handleUpdate() {
-    AdminUser selectedRoom = table.getSelectionModel().getSelectedItem();
-    if (selectedRoom != null) {
-        String roomID = selectedRoom.getRoomID();
-        String roomType = statusBox.getValue();
-        String capacity = ""; // Adjust according to your data source
-        String floor = ""; // Adjust according to your data source
-        if (roomType != null) {
-            AdminRoomDto RoomDto = new AdminRoomDto(roomID, roomType, capacity, floor);
-            roomService.updateRoom(RoomDto);
-            loadRoomData();
+    @FXML
+    private void handleDelete(ActionEvent event) {
+        AdminRoomDto selectedRoom = table.getSelectionModel().getSelectedItem();
+        if (selectedRoom != null) {
+            service.deleteRoom(selectedRoom.getRoomID());
+            table.getItems().remove(selectedRoom);
+            AlertUtil.showSuccessAlert("Success", "Room Deleted", "The room has been deleted successfully.");
         } else {
-            showError("Please select a room type.");
+            AlertUtil.showWarningAlert("No Selection", "No Room Selected", "Please select a room in the table.");
         }
-    } else {
-        showError("Please select a room to update.");
-    }
-}
-
-//    @FXML
-//    public void handleDelete() {
-//        AdminUser selectedRoom = table.getSelectionModel().getSelectedItem();
-//        if (selectedRoom != null) {
-//            String roomID = selectedRoom.getRoomID();
-//            roomService.deleteRoom(roomID);
-//            loadRoomData();
-//        } else {
-//            showError("Please select a room to delete.");
-//        }
-//    }
-@FXML
-public void handleDelete() {
-    AdminUser selectedRoom = table.getSelectionModel().getSelectedItem();
-    if (selectedRoom != null) {
-        String roomID = selectedRoom.getRoomID();
-        roomService.deleteRoom(roomID);
-        loadRoomData();
-    } else {
-        showError("Please select a room to delete.");
-    }
-}
-
-    private void loadRoomData() {
-        List<AdminUser> roomList = roomService.getAllRooms();
-        // Populate table with room data
-    }
-
-    private void showError(String message) {
-        // Implement logic to show error message to the user
     }
 }

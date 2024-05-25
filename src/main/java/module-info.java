@@ -7,5 +7,6 @@ module com.example.studentaccommodation {
     exports app;
     opens controllers to javafx.fxml;
     opens models to javafx.base;
+    exports models.dto;
     opens models.filter to javafx.base;
 }

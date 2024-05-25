@@ -1,20 +1,15 @@
 package services;
 
-import models.AdminUser;
-import repositories.AdminRoomRepository;
 import models.dto.AdminRoomDto;
+import repositories.AdminRoomRepository;
 
 import java.util.List;
 
 public class AdminRoomService {
 
-    private AdminRoomRepository roomRepository;
+    private AdminRoomRepository roomRepository = new AdminRoomRepository();
 
-    public AdminRoomService() {
-        this.roomRepository = new AdminRoomRepository();
-    }
-
-    public List<AdminUser> getAllRooms() {
+    public List<AdminRoomDto> getAllRooms() {
         return roomRepository.getAllRooms();
     }
 
@@ -30,20 +25,16 @@ public class AdminRoomService {
         roomRepository.deleteRoom(roomID);
     }
 
-    public int getTotalRooms() {
-        return roomRepository.getTotalRooms();
-    }
-
-    public int getTotalRoomsByType(String roomType) {
-        return roomRepository.getTotalRoomsByType(roomType);
-    }
-
-    public List<AdminUser> getRoomsByFloor(int floor) {
-        return roomRepository.getRoomsByFloor(floor);
-    }
-
-//    public List<String> getDistinctRoomTypes() {
-//        return roomRepository.getDistinctRoomTypes();
+//    public int getTotalRooms() {
+//        return roomRepository.getTotalRooms();
+//    }
+//
+//    public int getTotalRoomsByType(String roomType) {
+//        return roomRepository.getTotalRoomsByType(roomType);
+//    }
+//
+//    public List<AdminRoomDto> getRoomsByFloor(int floor) {
+//        return roomRepository.getRoomsByFloor(floor);
 //    }
 
     // You can add more methods here to handle other business logic related to rooms

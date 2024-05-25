@@ -1,6 +1,7 @@
 package repositories;
 
 import models.AdminUser;
+import models.dto.AdminRoomDto;
 import services.DBConnector;
 
 import java.sql.Connection;
@@ -14,14 +15,14 @@ public class AdminRoomRepository {
 
     private static Connection connection = DBConnector.getConnection();
 
-    public List<AdminUser> getAllRooms() {
-        List<AdminUser> rooms = new ArrayList<>();
+    public List<AdminRoomDto> getAllRooms() {
+        List<AdminRoomDto> rooms = new ArrayList<>();
         String query = "SELECT roomID, roomType, capacity, floor FROM ROOM";
         try {
             PreparedStatement pst = connection.prepareStatement(query);
             ResultSet result = pst.executeQuery();
             while (result.next()) {
-                AdminUser room = new AdminUser(
+                AdminRoomDto room = new AdminRoomDto(
                         result.getString("roomID"),
                         result.getString("roomType"),
                         result.getString("capacity"),
