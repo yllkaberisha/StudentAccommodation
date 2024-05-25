@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminRoomController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminRoomController">
    <children>
       <Label layoutX="116.0" layoutY="54.0" text="%lblStudentRegistration" textFill="#06768d">
          <font>
             <Font name="Berlin Sans FB" size="29.0" />
          </font>
       </Label>
-      <Pane layoutX="14.0" layoutY="124.0" prefHeight="114.0" prefWidth="328.0" style="-fx-background-color: #06768d;">
+      <Pane layoutX="22.0" layoutY="124.0" prefHeight="114.0" prefWidth="327.0" style="-fx-background-color: #06768d;">
          <children>
             <Label layoutX="32.0" layoutY="24.0" text="%lblType" textFill="WHITE">
                <font>
@@ -33,16 +27,17 @@
             <ChoiceBox fx:id="statusBox" layoutX="133.0" layoutY="20.0" prefWidth="150.0" />
          </children>
       </Pane>
-      <TableView fx:id="table" layoutX="22.0" layoutY="285.0" prefHeight="226.0" prefWidth="278.0">
+      <TableView fx:id="table" layoutX="22.0" layoutY="285.0" prefHeight="226.0" prefWidth="454.0">
          <columns>
-            <TableColumn fx:id="RoomsIDColmn" prefWidth="85.60003471374512" text="%lblRoomsID" />
-            <TableColumn fx:id="TypeColmn" prefWidth="72.79998779296875" text="%lblType" />
-            <TableColumn fx:id="RoomsCapacityColmn" prefWidth="116.7999267578125" text="%lblRoomsCapacity" />
+            <TableColumn fx:id="RoomsIDColmn" prefWidth="113.5" text="%lblRoomsID" />
+            <TableColumn fx:id="TypeColmn" prefWidth="113.5" text="%lblType" />
+            <TableColumn fx:id="RoomsCapacityColmn" prefWidth="113.5" text="%lblRoomsCapacity" />
+            <TableColumn fx:id="FloorColmn" prefWidth="113.5" text="%lblFloor" />
 
          </columns>
       </TableView>
-      <Button fx:id="btnAdd" layoutX="373.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnAdd" textFill="WHITE" />
-      <Button fx:id="btnUpdate" layoutX="373.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnUpdate" textFill="WHITE" />
-      <Button fx:id="btnDelete" layoutX="373.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnDelete" textFill="WHITE" />
+      <Button fx:id="btnAdd" layoutX="405.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnAdd" textFill="WHITE" />
+      <Button fx:id="btnUpdate" layoutX="405.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnUpdate" textFill="WHITE" />
+      <Button fx:id="btnDelete" layoutX="405.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="42.0" prefWidth="70.0" style="-fx-background-color: #06768d;" text="%btnDelete" textFill="WHITE" />
    </children>
 </AnchorPane>
