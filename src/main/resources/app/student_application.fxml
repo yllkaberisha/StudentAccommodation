@@ -20,21 +20,29 @@
     </left>
     <center>
         <AnchorPane prefHeight="500.0" prefWidth="401.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
-            <Label fx:id="statusLabel" layoutX="99.0" layoutY="72.0" text="Status: Pending" />
+            <Label fx:id="statusLabelText" layoutX="84.0" layoutY="50.0"  text="%lblStatusUser" textFill="#06768d">
+                <font>
+                    <Font size="23.0" />
+                </font></Label>
+            <Label fx:id="statusLabel" layoutX="174.0" layoutY="50.0"  text="" >
+                <font>
+                    <Font size="23.0" />
+                </font></Label>
+
             <children>
                 <TextField id="Faculty" fx:id="txtFaculty" layoutX="137.0" layoutY="112.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
-                <Text fill="#23a7ea" layoutX="48.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faculty" />
-                <Label layoutX="24.0" layoutY="169.0" text="Year of Studies" textFill="#23a7ea" />
+                <Text fill="#06768d" layoutX="48.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%lblFaculty" />
+                <Label layoutX="24.0" layoutY="169.0" text="%lblYear" textFill="#06768d" />
                 <TextField id="YearOfStudies" fx:id="txtYearsOfStudies" layoutX="137.0" layoutY="164.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
-                <Label layoutX="48.0" layoutY="211.0" text="Major" textFill="#23a7ea" />
+                <Label layoutX="48.0" layoutY="211.0" text="%lblMajor" textFill="#06768d" />
                 <TextField id="Major" fx:id="txtMajor" layoutX="137.0" layoutY="206.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
-                <Label layoutX="25.0" layoutY="258.0" text="Average grade" textFill="#23a7ea" />
+                <Label layoutX="25.0" layoutY="258.0" text="%lblAverageGrade" textFill="#06768d" />
                 <TextField id="AverageGrade" fx:id="txtAverageGrade" layoutX="137.0" layoutY="253.0" style="-fx-background-color: transparent; -fx-border-color: #06768d; -fx-border-width: 0px 0px 2px 0px;" />
-                <Button layoutX="22.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleSave" style="-fx-background-color: #3da1cc;" text="%btnApply" textFill="WHITE" />
-                <Button layoutX="111.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #3da1cc;" text="%btnCancel" textFill="WHITE" />
-                <Button layoutX="212.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleUpdate" style="-fx-background-color: #3da1cc;" text="%btnUpdate" textFill="WHITE" />
-                <Button layoutX="258.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleLogOut" style="-fx-background-color: #3da1cc;" text="%btnLogOut" textFill="WHITE" />
-
+                <Button layoutX="22.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleSave" style="-fx-background-color: #06768d;" text="%btnApply" textFill="WHITE" />
+                <Button layoutX="111.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleCancel" style="-fx-background-color: #06768d;" text="%btnCancel" textFill="WHITE" />
+                <Button layoutX="212.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleUpdate" style="-fx-background-color: #06768d;" text="%btnUpdate" textFill="WHITE" />
+                <Button layoutX="258.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleLogOut" style="-fx-background-color: #06768d;" text="%btnLogOut" textFill="WHITE" />
+                <Button layoutX="250.0" layoutY="15.0" mnemonicParsing="false" onAction="#handelChangeLanguage" prefHeight="27.0" prefWidth="82.0" style="-fx-background-color: #06768d;" text="EN | SQ" textFill="WHITE" />
             </children>
         </AnchorPane>
     </center>

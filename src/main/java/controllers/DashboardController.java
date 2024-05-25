@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+
     @FXML
     private Label lblGenderDistribution;
     @FXML
@@ -44,7 +45,7 @@ public class DashboardController implements Initializable {
     @FXML
     private Label maleDormCountLabel;
     @FXML
-    private Label femaleDormCountLabel;
+    private Label lblTotalRooms;
     @FXML
     private Label totalDormCountLabel;
 
@@ -79,15 +80,13 @@ public class DashboardController implements Initializable {
     }
 
     private void loadDormStatistics() {
-        int maleDormCount = 3; // Example value, replace with actual logic if necessary
-        int femaleDormCount = 5; // Example value, replace with actual logic if necessary
-        int totalDormCount = maleDormCount + femaleDormCount;
+        long totalMaleCapacity = dormService.getTotalCapacityForMaleRooms();
+        long totalFemaleCapacity = dormService.getTotalCapacityForFemaleRooms();
+        long totalCapacity = dormService.getTotalCapacity();
 
-        maleDormCountLabel.setText(String.valueOf(maleDormCount));
-        femaleDormCountLabel.setText(String.valueOf(femaleDormCount));
-        totalDormCountLabel.setText(String.valueOf(totalDormCount));
+        totalRoomsCountLabel.setText(String.valueOf(totalCapacity));
 
-        updateDormPieChart(maleDormCount, femaleDormCount);
+        updateDormPieChart(totalMaleCapacity, totalFemaleCapacity);
     }
 
     private void updateGenderPieChart(long maleCount, long femaleCount) {

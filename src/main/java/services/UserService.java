@@ -104,4 +104,8 @@ public class UserService {
     public static boolean saveInformation(ApplicationDto applicationData) {
         return userRepository.saveInformation(applicationData);
     }
+    public static ApplicationDto getApplicationByUserId(int userId) {
+        return UserRepository.findApplicationByUserId(userId);
+    }
+
 }

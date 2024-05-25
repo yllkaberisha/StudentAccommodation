@@ -108,16 +108,16 @@ public class UserRepository {
         }
     }
     public static boolean saveInformation(ApplicationDto applicationData) {
-        int id = applicationData.getID();
+        int userID = applicationData.getUserID();
         String faculty = applicationData.getFaculty();
         Integer yearsOfStudies = applicationData.getYearsOfStudies();
         String major = applicationData.getMajor();
         double averageGrade = applicationData.getAverageGrade();
-
-        try (Connection connection = DBConnector.getConnection()) {
+        Connection connection = DBConnector.getConnection();
+        try  {
             String query = "INSERT INTO application (userID, applicationDate, faculty, yearOfStudies, major, averageGrade, status ) VALUES (?, NOW(), ?, ?, ?, ?, 'pending')";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, userID);
             preparedStatement.setString(2, faculty);
             preparedStatement.setInt(3, yearsOfStudies);
             preparedStatement.setString(4, major);
@@ -135,16 +135,16 @@ public class UserRepository {
         Integer yearsOfStudies = applicationData.getYearsOfStudies();
         String major = applicationData.getMajor();
         double averageGrade = applicationData.getAverageGrade();
-
-        try (Connection connection = DBConnector.getConnection()) {
-            String query = "UPDATE application SET faculty=?, yearOfStudies=?, major=?, averageGrade=?, status='pending' WHERE applicationid=?";
+        int applicationId = applicationData.getID();
+        Connection connection = DBConnector.getConnection();
+        try  {
+            String query = "UPDATE application SET faculty=?, yearOfStudies=?, major=?, averageGrade=? WHERE applicationID=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, faculty);
             preparedStatement.setInt(2, yearsOfStudies);
             preparedStatement.setString(3, major);
             preparedStatement.setDouble(4, averageGrade);
-            preparedStatement.setString(5, "6");
-            //  preparedStatement.setInt(5, applicationId);
+            preparedStatement.setInt(5, applicationId);
 
             int rowsUpdated = preparedStatement.executeUpdate();
             return rowsUpdated > 0;
@@ -156,16 +156,45 @@ public class UserRepository {
 
     public long countUsersByGender(String gender) {
         String query = "SELECT COUNT(*) FROM USERS WHERE gender = ?";
-        try (Connection connection = DBConnector.getConnection();
-             PreparedStatement pst = connection.prepareStatement(query)) {
+        Connection connection = DBConnector.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
             pst.setString(1, gender);
             ResultSet result = pst.executeQuery();
-            if (result.next()) {
+            if(result.next()){
                 return result.getLong(1);
             }
-        } catch (SQLException e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public static ApplicationDto findApplicationByUserId(int userId) {
+        String query = "SELECT * FROM APPLICATION WHERE userID = ?";
+        Connection connection = DBConnector.getConnection();
+        try {
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setInt(1, userId);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                return getResultSetApplication(rs);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static ApplicationDto getResultSetApplication(ResultSet rs) throws SQLException {
+        return new ApplicationDto(
+                rs.getInt("applicationID"),
+                rs.getString("faculty"),
+                rs.getInt("yearOfStudies"),
+                rs.getString("major"),
+                rs.getDouble("averageGrade"),
+                rs.getString("status"),
+                rs.getInt("userID"));
     }
 }

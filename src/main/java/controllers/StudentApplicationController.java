@@ -4,14 +4,17 @@ import app.Navigator;
 import app.SessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import models.dto.ApplicationDto;
-import repositories.UserRepository;
 import services.UserService;
+import utils.AlertUtil;
 
 public class StudentApplicationController {
-//    @FXML
-//    private Label statusLabel;
+    public Label statusLabelText;
+    @FXML
+    private Label statusLabel;
     @FXML
     private TextField txtFaculty;
     @FXML
@@ -20,125 +23,116 @@ public class StudentApplicationController {
     private TextField txtMajor;
     @FXML
     private TextField txtAverageGrade;
-    private int applicationId;
-//    @FXML
-//    private Button saveButton;
-//
-//    @FXML
-//    private Button cancelButton;
+    @FXML
+    private Button btnApply;
+    @FXML
+    private Button btnCancel;
+    @FXML
+    private Button btnUpdate;
+
+    private int applicationId = -1;
 
     // No-argument constructor
     public StudentApplicationController() {
     }
 
     @FXML
-    public void handleSave(ActionEvent actionEvent) {
-        int id = SessionManager.getUser().getID();
-        String faculty = txtFaculty.getText();
-        Integer yearsOfStudies = Integer.parseInt(txtYearsOfStudies.getText());
-        String major = txtMajor.getText();
-        double averageGrade = Double.parseDouble(txtAverageGrade.getText());
-
-        System.out.println(id);
-        // Krijo një instance të ApplicationDto
-        ApplicationDto applicationData = new ApplicationDto(id, faculty, yearsOfStudies, major, averageGrade);
-
-        // Thirr funksionin për të ruajtur aplikacionin në bazën e të dhënave
-        boolean saved = UserService.saveInformation(applicationData);
-
-        if (saved) {
-            System.out.println("Application saved successfully!");
-            // Pastro fushat e formës
-
-            resetFormFields();
-//            updateButtonVisibility("Pending");
-//            setStatus("Pending");
-        } else {
-            System.out.println("Failed to save application.");
-        }
-
-    }
-//    public void updateButtonVisibility(String status) {
-//        if ("Pending".equalsIgnoreCase(status)) {
-//            // Trego butonat nëse statusi është 'Pending'
-//            saveButton.setVisible(true);
-//            cancelButton.setVisible(true);
-//        } else {
-//            // Fshij butonat nëse statusi është tjetër
-//            saveButton.setVisible(false);
-//            cancelButton.setVisible(false);
-//        }
-//    }
-
-    // Metoda për të vendosur statusin në label
-//    public void setStatus(String status) {
-//        statusLabel.setText("Status: " + status);
-//    }
-
-    @FXML
-    public void handleCancel(ActionEvent actionEvent) {
-        System.out.println("Cancel button clicked, resetting form fields."); // Debug statement
-        resetFormFields();
-//        updateButtonVisibility("Pending");
-//        setStatus("Pending");
-    }
-    @FXML
     public void initialize() {
         // Add listeners to enforce numeric input
         addNumericValidation(txtYearsOfStudies);
         addDecimalValidation(txtAverageGrade);
+
+        // Check if an application exists for the current user
+        int userId = SessionManager.getUser().getID();
+        ApplicationDto application = UserService.getApplicationByUserId(userId);
+
+        if (application != null) {
+            applicationId = application.getID();
+            txtFaculty.setText(application.getFaculty());
+            txtYearsOfStudies.setText(application.getYearsOfStudies().toString());
+            txtMajor.setText(application.getMajor());
+            txtAverageGrade.setText(String.valueOf(application.getAverageGrade()));
+
+            setStatus(application.getStatus());
+        } else {
+            setStatus("No Application");
+        }
     }
-    public void setApplicationId(int applicationId) {
-        this.applicationId = applicationId;
-    }
-    public void handleUpdate(ActionEvent actionEvent) {
-        int id = SessionManager.getUser().getID();
+
+    @FXML
+    public void handleSave(ActionEvent actionEvent) {
+        if (applicationId != -1) {
+            AlertUtil.showErrorAlert("Application Exists", "You have already applied.", "");
+            return;
+        }
+
+        int userID = SessionManager.getUser().getID();
         String faculty = txtFaculty.getText();
         Integer yearsOfStudies = Integer.parseInt(txtYearsOfStudies.getText());
         String major = txtMajor.getText();
         double averageGrade = Double.parseDouble(txtAverageGrade.getText());
-        if (applicationId != -1) {
-            ApplicationDto applicationData = new ApplicationDto(id,faculty, yearsOfStudies, major, averageGrade);
 
-            boolean updated = UserService.updateInformation(applicationData);
+        ApplicationDto applicationData = new ApplicationDto(applicationId, faculty, yearsOfStudies, major, averageGrade, null, userID);
+        boolean saved = UserService.saveInformation(applicationData);
 
-            if (updated) {
-                System.out.println("Application updated successfully!");
-                resetFormFields();
-//            updateButtonVisibility("Pending");
-//            setStatus("Pending");
-            } else {
-                System.out.println("Failed to update application.");
-            }
+        if (saved) {
+            AlertUtil.showSuccessAlert("Success", "Application saved successfully!", "");
+            initialize();
+        } else {
+            AlertUtil.showErrorAlert("Error", "Failed to save application.", "");
         }
     }
 
-    public TextField getTxtFaculty() {
-        return txtFaculty;
+    @FXML
+    public void handleCancel(ActionEvent actionEvent) {
+        if (applicationId != -1) {
+            AlertUtil.showErrorAlert("Application Exists", "You have already applied.", "");
+            return;
+        }
+        resetFormFields();
     }
 
-    public TextField getTxtYearsOfStudies() {
-        return txtYearsOfStudies;
+    @FXML
+    public void handleUpdate(ActionEvent actionEvent) {
+        if (applicationId == -1) {
+            AlertUtil.showErrorAlert("No Application", "Please apply before updating.", "");
+            return;
+        }
+        String status = statusLabel.getText();
+        if (!"pending".equalsIgnoreCase(status)) {
+            AlertUtil.showErrorAlert("Update Not Allowed", "You can only update an application with 'Pending' status.", "");
+            return;
+        }
+
+        int userID = SessionManager.getUser().getID();
+        String faculty = txtFaculty.getText();
+        Integer yearsOfStudies = Integer.parseInt(txtYearsOfStudies.getText());
+        String major = txtMajor.getText();
+        double averageGrade = Double.parseDouble(txtAverageGrade.getText());
+
+
+        ApplicationDto applicationData = new ApplicationDto(applicationId, faculty, yearsOfStudies, major, averageGrade, status, userID);
+        boolean updated = UserService.updateInformation(applicationData);
+
+        if (updated) {
+            AlertUtil.showSuccessAlert("Success", "Application updated successfully!", "");
+            initialize();
+        } else {
+            AlertUtil.showErrorAlert("Error", "Failed to update application.", "");
+        }
     }
 
-    public TextField getTxtMajor() {
-        return txtMajor;
+    private void setStatus(String status) {
+        statusLabel.setText(status);
     }
 
-    public TextField getTxtAverageGrade() {
-        return txtAverageGrade;
-    }
-
-    public void handleLogOut(ActionEvent actionEvent) {
-        Navigator.navigate(actionEvent,Navigator.LOGIN_PAGE);
-    }
     private void resetFormFields() {
-        System.out.println("Resetting form fields."); // Debug statement
         txtFaculty.clear();
         txtYearsOfStudies.clear();
         txtMajor.clear();
         txtAverageGrade.clear();
     }
+
     private void addNumericValidation(TextField textField) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
@@ -146,6 +140,7 @@ public class StudentApplicationController {
             }
         });
     }
+
     private void addDecimalValidation(TextField textField) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*(\\.\\d*)?")) {
@@ -154,4 +149,14 @@ public class StudentApplicationController {
         });
     }
 
+    @FXML
+    public void handleLogOut(ActionEvent actionEvent) {
+        Navigator.navigate(actionEvent, Navigator.LOGIN_PAGE);
+    }
+
+    @FXML
+    public void handelChangeLanguage(ActionEvent ae) {
+        Navigator.changeLanguage();
+        Navigator.navigate(ae,Navigator.STUDENT_APPLICATION_PAGE);
+    }
 }
