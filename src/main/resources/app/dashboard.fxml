@@ -20,7 +20,7 @@
                                 <Insets top="22.0" />
                             </padding>
                         </Label>
-                        <PieChart fx:id="genderPieChart" prefHeight="228.0" prefWidth="287.0" />
+                        <PieChart fx:id="genderPieChart" minWidth="-Infinity" prefHeight="228.0" prefWidth="266.0" />
                         <Label fx:id="lblMaleUsers" text="%lblMaleUsers" />
                         <Label fx:id="totalMaleUsersLabel" text="0" />
                         <Label fx:id="lblFemaleUsers" text="%lblFemaleUsers" />
@@ -39,7 +39,7 @@
                                 <Insets top="22.0" />
                             </padding>
                         </Label>
-                        <PieChart fx:id="dormPieChart" prefHeight="228.0" prefWidth="259.0" />
+                        <PieChart fx:id="dormPieChart" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="228.0" prefWidth="295.0" />
                         <Label fx:id="lblMaleCapacity" text="%lblMaleRooms" />
                         <Label fx:id="totalMaleCapacity" text="0" />
                         <Label fx:id="lblFemaleCapacity" text="%lblFemaleRooms" />
