@@ -12,6 +12,8 @@ CREATE TABLE USERS (
     salt VARCHAR(255) NOT NULL
 );
 
+alter table USERS add isActive boolean default true;
+
 CREATE TABLE ROOM (
     roomID INT AUTO_INCREMENT PRIMARY KEY,
     roomType VARCHAR(1) NOT NULL,
