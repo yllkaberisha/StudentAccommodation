@@ -79,7 +79,7 @@ public class AdminApplicationRepository {
                 "JOIN APPLICATION a ON u.id = a.userID " +
                 "left join allocation al ON al.applicationID = a.applicationID";
 
-        System.out.println(query);
+//        System.out.println(query);
         try {
             PreparedStatement pst = connection.prepareStatement(query);
             ResultSet result = pst.executeQuery();
@@ -93,7 +93,7 @@ public class AdminApplicationRepository {
     }
 
     private Student getFromResultSet(ResultSet result) throws SQLException {
-        System.out.println("result");
+//        System.out.println("result");
         int applicationID = result.getInt("applicationID");
         int userId = result.getInt("id");
         String firstName = result.getString("firstname");
